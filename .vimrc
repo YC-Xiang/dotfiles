@@ -57,3 +57,10 @@ set autowrite		" Automatically save before commands like :next and :make
 set cursorline
 set ruler
 set tabstop=4
+
+" change the default mapping and the default command to invoke CtrlP:
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+" When invoked without an explicit starting directory,
+" CtrlP will set its local working directory according to this variable:
+let g:ctrlp_working_path_mode = 'ra'
