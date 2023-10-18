@@ -4,6 +4,7 @@ alias ll="ls -lh"
 # Save a lot of typing for common commands
 alias gs="git status"
 alias gc="git commit"
+alias gl="git log"
 alias v="vim"
 
 # Save you from mistyping
@@ -17,3 +18,4 @@ alias df="df -h"           # -h prints human readable format
 # Alias can be composed
 alias la="ls -A"
 alias lla="la -l"
+
