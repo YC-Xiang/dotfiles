@@ -1,5 +1,5 @@
 cur_dir=$(pwd)
-files=(".vimrc" ".tmux.conf" ".aliases")
+files=(".vimrc" ".tmux.conf" ".aliases" ".ctags")
 
 if [ ! -d ${cur_dir}/old_files ]; then
 	mkdir -p old_files

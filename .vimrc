@@ -64,3 +64,4 @@ let g:ctrlp_cmd = 'CtrlP'
 " When invoked without an explicit starting directory,
 " CtrlP will set its local working directory according to this variable:
 let g:ctrlp_working_path_mode = 'ra'
+filetype plugin indent on
