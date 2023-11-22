@@ -19,4 +19,3 @@ done
 # cat ./.bashrc >> ~/.bashrc
 
 source ~/.bashrc
-source ~/.aliases
