@@ -18,3 +18,8 @@ then
     git clone --depth=1 https://github.com/mileszs/ack.vim.git $path/ack.vim
 fi
 
+if [ ! -d $path/nerdtree ];
+then
+	git clone https://github.com/preservim/nerdtree.git $path/nerdtree
+fi
+
