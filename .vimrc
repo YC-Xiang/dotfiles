@@ -1,18 +1,8 @@
-" Vim is based on Vi. Setting `nocompatible` switches from the default
-" Vi-compatibility mode and enables useful Vim functionality. This
-" configuration option turns out not to be necessary for the file named
-" '~/.vimrc', because Vim automatically enters nocompatible mode if that file
-" is present. But we're including it here just in case this config file is
-" loaded some other way (e.g. saved as `foo`, and then Vim started with
-" `vim -u foo`).
 set nocompatible
 
 syntax on
 
-" Disable the default Vim startup message.
-set shortmess+=I
-
-set number
+set number " line number
 
 set relativenumber
 
@@ -40,9 +30,10 @@ set smartcase
 
 " Enable searching as you type, rather than waiting till you press enter.
 set incsearch
+set hlsearch " highlight search result
 
 " Unbind some useless/annoying default key bindings.
-nmap Q <Nop> " 'Q' in normal mode enters Ex mode. You almost never want this.
+nmap Q <Nop>
 
 " Disable audible bell because it's annoying.
 set noerrorbells visualbell t_vb=
@@ -51,12 +42,28 @@ set noerrorbells visualbell t_vb=
 " sometimes be convenient.
 set mouse+=a
 
-set showcmd		" Show (partial) command in status line.
-set showmatch		" Show matching brackets.
-set autowrite		" Automatically save before commands like :next and :make
+set showcmd " Show (partial) command in status line.
+set showmatch " Show matching brackets.
+set autowrite " Automatically save before commands like :next and :make
 set cursorline
 set ruler
-set tabstop=4
+set tabstop=8
+set ignorecase " ignore capital or low character
+set smartcase " search capital will only match capital character
+set autoindent " indent according to previous line
+set ttyfast " faster redrawing
+set lazyredraw " only redraw when necessary
+set splitbelow " open new windows below the current window
+set splitright " open new windows right of the current window
+set report=0
+set synmaxcol=200
+set noswapfile " don't generate swap file
+set undofile " can undo when next time open the file
+set directory=~/.vim/.swp//
+set undodir=~/.vim/.undo//
+set listchars=tab:»■,trail:■ " show the trailing space
+set list
+filetype indent on
 
 " change the default mapping and the default command to invoke CtrlP:
 let g:ctrlp_map = '<c-p>'
@@ -67,3 +74,9 @@ let g:ctrlp_working_path_mode = 'ra'
 filetype plugin indent on
 " Auto generate tags file on file write of *.c and *.h files
 autocmd BufWritePost *.c,*.h silent! !ctags . &
+
+let NERDTreeShowLineNumbers=1 " show line number
+map  <F2> :NERDTreeToggle<CR>
+let NERDTreeShowBookmarks=1
+let g:NERDTreeShowHidden = 1 " show hidden files
+
