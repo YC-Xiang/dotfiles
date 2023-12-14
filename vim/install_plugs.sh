@@ -23,3 +23,7 @@ then
 	git clone https://github.com/preservim/nerdtree.git $path/nerdtree
 fi
 
+if [ ! -d $path/gruvbox ];
+then
+	git clone https://github.com/morhetz/gruvbox.git $path/gruvbox
+fi
