@@ -7,7 +7,9 @@ fi
 socket=$(ls -1t /run/user/$UID/vscode-ipc-*.sock 2> /dev/null | head -1)
 export VSCODE_IPC_HOOK_CLI=${socket}
 
-if [ -z "$TMUX" ]; then
-    tmux attach-session || tmux new-session -n $HOSTNAME
-fi
+### open tmux by default
+
+#if [ -z "$TMUX" ]; then
+#    tmux attach-session || tmux new-session -n $HOSTNAME
+#fi
 
