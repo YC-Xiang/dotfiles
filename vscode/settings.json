@@ -1,0 +1,123 @@
+{
+
+	"remote.SSH.remotePlatform": {
+		"pcbubs8": "linux",
+		"172.29.110.249": "linux",
+		"172.29.40.241": "linux",
+		"pcbubs10.realsil.com.cn": "linux",
+		"192.168.31.242": "linux",
+		"192.168.31.42": "linux",
+		"192.168.0.169": "linux"
+	},
+
+	/***todo tree***/
+	"todo-tree.general.tags":[
+		"todo:",
+		"fixme:"
+	],
+	"todo-tree.highlights.customHighlight": {
+		"BUG": {
+			"icon": "bug"
+		},
+		"HACK": {
+			"icon": "tools"
+		},
+		"FIXME": {
+			"icon": "flame"
+		},
+		"XXX": {
+			"icon": "x"
+		},
+		"[ ]": {
+			"icon": "issue-draft"
+		},
+		"[x]": {
+			"icon": "issue-closed"
+		}
+	},
+	"todo-tree.highlights.foregroundColourScheme": [
+		"black",
+		"black",
+		"white",
+		"white",
+		"white",
+		"black"
+	],
+	"todo-tree.highlights.useColourScheme": true,
+	"todo-tree.highlights.backgroundColourScheme": [
+		"yellow",
+		"orange",
+		"yellow",
+		"green",
+		"blue",
+		"indigo",
+		"violet"
+	],
+
+	/***vscode vim***/
+	"vim.useSystemClipboard": true,
+	"vim.incsearch": true,
+	"vim.hlsearch": true,
+
+	"vim.insertModeKeyBindings": [
+	{
+	"before": ["j", "j"],
+	"after": ["<Esc>"]
+	}
+	],
+	"vim.normalModeKeyBindings": [
+	{
+	"before": ["<Enter>"],
+	"after": ["o", "<Esc>"]
+	}
+	],
+
+	"vim.handleKeys": {
+		"<C-a>": false,
+		"<C-f>": false,
+		"<C-h>": false,
+		"<C-n>": false,
+		"<C-p>": false,
+		"<C-y>": false,
+		"<C-g>": false,
+		"<Shift+Tab>": false
+	},
+
+	/***editor***/
+	"files.trimTrailingWhitespace": true,
+	"files.trimFinalNewlines": true,
+	"files.insertFinalNewline": true,
+	"files.exclude": {
+		"**/.git": false
+	},
+	"files.eol": "\r\n",
+	"editor.insertSpaces": false,
+	"editor.tabSize": 8,
+	"editor.suggestSelection": "first",
+	"editor.unicodeHighlight.invisibleCharacters": false,
+	"editor.defaultFormatter": "ms-vscode.cpptools",
+	"editor.detectIndentation": false,
+
+	/***Misc***/
+	"oneDarkPro.italic": false,
+	"gitlens.codeLens.enabled": false,
+	"markdownlint.config": {
+		"MD010": false,
+		"MD033": false,
+		"MD034": false,
+	},
+	"workbench.colorTheme": "One Dark Pro",
+	"C_Cpp.clang_format_style": "Visual Studio",
+	"explorer.confirmDelete": false,
+	"workbench.iconTheme": "material-icon-theme",
+	"vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+	"security.workspace.trust.untrustedFiles": "open",
+	"terminal.integrated.defaultProfile.windows": "Git Bash",
+	"C_Cpp.files.exclude": {
+		"**/.vscode": true,
+		"**/.vs": true
+	},
+	"window.zoomLevel": -1,
+
+	/***new feature***/
+}
