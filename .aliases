@@ -7,6 +7,9 @@ alias gc="git commit"
 alias gl="git log"
 alias v="vim"
 
+git config --global alias.br branch
+git config --global alias.sh stash
+
 # Save you from mistyping
 alias sl=ls
 
