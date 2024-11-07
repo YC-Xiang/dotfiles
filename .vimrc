@@ -83,10 +83,10 @@ map  <F2> :NERDTreeToggle<CR>
 let NERDTreeShowBookmarks=1
 let g:NERDTreeShowHidden = 1 " show hidden files
 
-" *****Gruvbox one Vim Theme*****
-autocmd vimenter * nested colorscheme gruvbox
-set bg=dark
-if (has("termguicolors"))
-  set termguicolors
-endif
-let g:gruvbox_contrast_dark = 'hard'
+@REM " *****Gruvbox one Vim Theme*****
+@REM autocmd vimenter * nested colorscheme gruvbox
+@REM set bg=dark
+@REM if (has("termguicolors"))
+@REM   set termguicolors
+@REM endif
+@REM let g:gruvbox_contrast_dark = 'hard'

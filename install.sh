@@ -1,5 +1,5 @@
 cur_dir=$(pwd)
-files=(".vimrc" ".tmux.conf" ".aliases" ".ctags")
+files=(".vimrc" ".tmux.conf" ".aliases")
 
 if [ ! -d ${cur_dir}/old_files ]; then
 	mkdir -p old_files
@@ -16,6 +16,6 @@ do
     ln -s ${cur_dir}/${file} ~/${file}
 done
 
-# cat ./.bashrc >> ~/.bashrc
+cat ./.bashrc >> ~/.bashrc
 
 source ~/.bashrc
