@@ -23,15 +23,15 @@ alias df="df -h"           # -h prints human readable format
 alias la="ls -A"
 alias lla="la -l"
 
-gp() {
+function gp() {
 	br=`git branch -vv | grep "*"`
 	br1=${br#*origin/}
 	br2=${br1%%:*}
 	git push origin HEAD:${br2}
 }
 
-parse_git_branch() {
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-}
+# parse_git_branch() {
+#     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+# }
 
-export PS1="\u@\h \[\033[01;00m\]\w\$(parse_git_branch)\[\033[00m\] $ "
+# export PS1="\u@\h \[\033[01;00m\]\w\$(parse_git_branch)\[\033[00m\] $ "
