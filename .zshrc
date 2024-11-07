@@ -122,3 +122,4 @@ source $ZSH/oh-my-zsh.sh
 if [ -f ~/.aliases ]; then
     source ~/.aliases
 fi
+bindkey '^_' autosuggest-accept
