@@ -23,11 +23,19 @@ alias df="df -h"           # -h prints human readable format
 alias la="ls -A"
 alias lla="la -l"
 
+unalias gp
 function gp() {
 	br=`git branch -vv | grep "*"`
 	br1=${br#*origin/}
 	br2=${br1%%:*}
 	git push origin HEAD:${br2}
+}
+
+function gpp() {
+	br=`git branch -vv | grep "*"`
+	br1=${br#*origin/}
+	br2=${br1%%:*}
+	git push origin HEAD:refs/for/${br2}
 }
 
 # parse_git_branch() {
