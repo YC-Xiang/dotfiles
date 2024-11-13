@@ -123,3 +123,4 @@ if [ -f ~/.aliases ]; then
     source ~/.aliases
 fi
 bindkey '^_' autosuggest-accept
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=220'
