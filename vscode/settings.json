@@ -1,0 +1,340 @@
+{
+  "remote.SSH.remotePlatform": {
+    "pcbubs8": "linux",
+    "172.29.110.249": "linux",
+    "172.29.40.241": "linux",
+    "pcbubs10.realsil.com.cn": "linux",
+    "192.168.31.242": "linux",
+    "192.168.31.42": "linux",
+    "192.168.0.169": "linux",
+    "192.168.168.130": "linux",
+    "192.168.168.132": "linux"
+  },
+  "todo-tree.general.tags": [
+    "todo:",
+    "fixme:",
+    "Note:",
+    "Todo:",
+    "Fixme:",
+    "???"
+  ],
+  "todo-tree.highlights.customHighlight": {
+    "BUG": {
+      "icon": "bug"
+    },
+    "HACK": {
+      "icon": "tools"
+    },
+    "FIXME": {
+      "icon": "flame"
+    },
+    "XXX": {
+      "icon": "x"
+    },
+    "[ ]": {
+      "icon": "issue-draft"
+    },
+    "[x]": {
+      "icon": "issue-closed"
+    }
+  },
+  "todo-tree.highlights.foregroundColourScheme": [
+    "black",
+    "black",
+    "white",
+    "black",
+    "black",
+    "white"
+  ],
+  "todo-tree.highlights.useColourScheme": true,
+  "todo-tree.highlights.backgroundColourScheme": [
+    "yellow",
+    "orange",
+    "violet",
+    "yellow",
+    "orange",
+    "violet",
+    "indigo",
+    "green"
+  ],
+  "vim.useSystemClipboard": true,
+  "vim.incsearch": true,
+  "vim.hlsearch": true,
+  "vim.easymotion": true,
+  "vim.leader": "<space>",
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.normalModeKeyBindings": [
+    {
+      "before": ["<Enter>"],
+      "after": ["o", "<Esc>"]
+    },
+    {
+      "before": ["<C-v>"],
+      "after": ["i", "<C-v>", "<Esc>"]
+    }
+  ],
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-c>": false,
+    "<C-x>": false,
+    "<C-f>": false,
+    "<C-h>": false,
+    "<C-n>": false,
+    "<C-p>": false,
+    "<C-y>": false,
+    "<C-g>": false,
+    "<C-l>": false,
+    "<C-b>": false,
+    "<C-w>": false,
+    "<C-k>": false,
+    "<C-v>": false,
+    "<C-s>": false,
+    "<Shift-Tab>": false
+  },
+  "vscode-neovim.compositeKeys": {
+    "jj": {
+      "command": "vscode-neovim.escape"
+    },
+    "jk": {
+      "command": "vscode-neovim.lua",
+      "args": [
+        [
+          "local code = require('vscode')",
+          "code.action('vscode-neovim.escape')",
+          "code.action('workbench.action.files.save')"
+        ]
+      ]
+    }
+  },
+  "files.trimFinalNewlines": true,
+  "files.insertFinalNewline": true,
+  "files.exclude": {
+    "**/.git": false
+  },
+  "editor.insertSpaces": false,
+  "editor.tabSize": 8,
+  "editor.suggestSelection": "first",
+  "editor.unicodeHighlight.invisibleCharacters": false,
+  "oneDarkPro.italic": false,
+  "gitlens.codeLens.enabled": false,
+  "markdownlint.config": {
+    "MD010": false,
+    "MD014": false,
+    "MD033": false,
+    "MD034": false,
+    "MD025": false,
+    "MD045": false,
+    "MD036": false,
+    "MD038": false
+  },
+  "explorer.confirmDelete": false,
+  "workbench.iconTheme": "material-icon-theme",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "security.workspace.trust.untrustedFiles": "open",
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "C_Cpp.files.exclude": {
+    "**/.vscode": true,
+    "**/.vs": true
+  },
+  "vim.commandLineModeKeyBindingsNonRecursive": [],
+  "git.autofetch": true,
+  "cmake.showOptionsMovedNotification": false,
+  "cmake.configureOnOpen": true,
+  "cmake.showConfigureWithDebuggerNotification": false,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "codeium.enableCodeLens": false,
+  "codeium.enableConfig": {
+    "*": true,
+    "markdown": true
+  },
+  "editor.lineNumbers": "relative",
+  "files.trimTrailingWhitespace": true,
+  "window.zoomLevel": -1,
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  "clangd.path": "c:\\Users\\yucheng_xiang\\AppData\\Roaming\\Code\\User\\globalStorage\\llvm-vs-code-extensions.vscode-clangd\\install\\18.1.3\\clangd_18.1.3\\bin\\clangd.exe",
+  "cmake.pinnedCommands": [
+    "workbench.action.tasks.configureTaskRunner",
+    "workbench.action.tasks.runTask"
+  ],
+  "[c]": {
+    "editor.tabSize": 8,
+    "editor.defaultFormatter": "ms-vscode.cpptools"
+  },
+  "[python]": {
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnPaste": true,
+  "editor.formatOnType": true,
+  "C_Cpp.inactiveRegionOpacity": 0.45,
+  "C_Cpp.clang_format_style": "Visual Studio",
+  "clangd.checkUpdates": true,
+  "clangd.onConfigChanged": "restart",
+  "makefile.configureOnOpen": true,
+  "editor.tabCompletion": "onlySnippets",
+  "editor.formatOnSave": true,
+  "workbench.colorTheme": "Atom One Light",
+  "workbench.colorCustomizations": {
+    "[Atom One Light]": {
+      "editor.background": "#F5F5F5",
+      "sideBar.background": "#dddddd",
+      "activityBar.background": "#FaFaFa",
+      "editor.selectionBackground": "#5eff0080",
+      "editorRuler.foreground": "#e5e5e5"
+    }
+  },
+  "editor.semanticHighlighting.enabled": true,
+  "editor.tokenColorCustomizations": {
+    "[Atom One Light]": {
+      "textMateRules": [
+        {
+          "scope": "entity.name.function.preprocessor",
+          "settings": {
+            "foreground": "#aca600"
+          }
+        },
+        {
+          "scope": "variable.parameter",
+          "settings": {
+            "foreground": "#00afaf"
+          }
+        }
+      ]
+    }
+  },
+  "workbench.preferredDarkColorTheme": "One Dark Pro",
+  "workbench.preferredLightColorTheme": "Atom One Light",
+  "window.autoDetectColorScheme": true,
+  "editor.hover.delay": 1000,
+  "remoteHub.commitDirectlyWarning": "off",
+  "leek-fund.statusBarStock": [],
+  "leek-fund.hideStatusBarStock": true,
+  "leek-fund.stocks": [
+    "sh000001",
+    "sz399001",
+    "hk03690",
+    "hk00700",
+    "usr_ixic",
+    "usr_dji",
+    "usr_inx",
+    "nf_IF0",
+    "nf_IH0",
+    "nf_IC0",
+    "nf_IM0",
+    "hf_OIL",
+    "hf_CHA50CFD",
+    "sz159915",
+    "sz002130",
+    "sh603083",
+    "sh600246",
+    "sh601138",
+    "sz002463",
+    "sz300502",
+    "usr_nvda",
+    "sz300563",
+    "sz300308",
+    "sh603893",
+    "sh600030",
+    "sz002475",
+    "sz002281",
+    "sz002851"
+  ],
+  "leek-fund.stockPrice": {
+    "sz399001": {
+      "name": "深证成指",
+      "amount": 0,
+      "price": "9965.024",
+      "unitPrice": 0,
+      "earnings": 0
+    },
+    "sh601138": {
+      "name": "工业富联",
+      "amount": 4900,
+      "price": "23.53",
+      "unitPrice": 24.85,
+      "earnings": 0
+    },
+    "sz002130": {
+      "name": "沃尔核材",
+      "amount": 0,
+      "price": "15.92",
+      "unitPrice": 0,
+      "earnings": 0
+    },
+    "sz002463": {
+      "name": "沪电股份",
+      "amount": 0,
+      "price": "39.50",
+      "unitPrice": 0,
+      "earnings": 0
+    },
+    "sz300502": {
+      "name": "新易盛",
+      "amount": 0,
+      "price": "133.45",
+      "unitPrice": 0,
+      "earnings": 0
+    },
+    "sz300563": {
+      "name": "神宇股份",
+      "amount": 0,
+      "price": "53.15",
+      "unitPrice": 0,
+      "earnings": 0
+    },
+    "hk03690": {
+      "name": "美团-W",
+      "amount": 0,
+      "price": "173.2",
+      "unitPrice": 0,
+      "earnings": 0
+    },
+    "hk00700": {
+      "name": "腾讯控股",
+      "amount": 0,
+      "price": "415.8",
+      "unitPrice": 0,
+      "earnings": 0
+    }
+  },
+  "leek-fund.stockSort": 0,
+  "leek-fund.stockHeldTipShow": false,
+  "leek-fund.flash-news": true,
+  "explorer.openEditors.sortOrder": "alphabetical",
+  "C_Cpp.intelliSenseEngine": "disabled",
+  "workbench.editorAssociations": {
+    "*.bin": "default"
+  },
+  "files.eol": "\n",
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  "editor.rulers": [80],
+  "gitlens.home.preview.enabled": false,
+  "workbench.activityBar.orientation": "vertical",
+  "crypto-ticker.interval": 30,
+  "crypto-ticker.onlyRefreshWhenFocused": true,
+  "crypto-ticker.tickers": [
+    {
+      "symbol": "BTC",
+      "currency": "USD",
+      "exchange": "CCCAGG",
+      "template": "{symbol} {price}"
+    },
+    {
+      "symbol": "ETH"
+    }
+  ],
+  "crypto-ticker.lowerColor": "black",
+  "crypto-ticker.higherColor": "black",
+  "black-formatter.args": [""],
+  "cursor.cpp.enablePartialAccepts": true,
+  "editor.inlayHints.enabled": "offUnlessPressed"
+}
