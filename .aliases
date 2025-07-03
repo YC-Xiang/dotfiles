@@ -5,6 +5,12 @@ alias ll="ls -lh"
 alias gs="git status"
 alias gc="git commit"
 alias gl="git log"
+alias gad="git add"
+alias gco="git checkout"
+alias gsh="git stash"
+alias gcp="git cherry-pick"
+alias gre="git rebase"
+alias gam="git commit --amend"
 alias v="vim"
 alias c="cursor"
 
@@ -24,7 +30,6 @@ alias df="df -h"           # -h prints human readable format
 alias la="ls -A"
 alias lla="la -l"
 
-unalias gp
 function gp() {
 	br=`git branch -vv | grep "*"`
 	br1=${br#*origin/}
