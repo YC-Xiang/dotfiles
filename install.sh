@@ -16,6 +16,4 @@ do
     ln -s ${cur_dir}/${file} ~/${file}
 done
 
-cat ./.bashrc >> ~/.bashrc
-
-source ~/.bashrc
+source ~/.zshrc
