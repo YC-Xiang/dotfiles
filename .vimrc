@@ -64,8 +64,11 @@ set undodir=~/.vim/.undo//
 set t_Co=256 " 256 colors
 filetype indent on
 
-set tags=tags;/
+set tags=tags;
 set autochdir
+
+inoremap jj <esc>
+
 " *****Ctrlp*****
 " change the default mapping and the default command to invoke CtrlP:
 let g:ctrlp_map = '<c-p>'
@@ -81,12 +84,12 @@ autocmd BufWritePost *.c,*.h silent! !ctags . &
 let NERDTreeShowLineNumbers=1 " show line number
 map  <F2> :NERDTreeToggle<CR>
 let NERDTreeShowBookmarks=1
-let g:NERDTreeShowHidden = 1 " show hidden files
+let NERDTreeWinPos="right"
+" Start NERDTree and put the cursor back in the other window.
+autocmd VimEnter * NERDTree | wincmd p
+" Exit Vim if NERDTree is the only window remaining in the only tab.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
-@REM " *****Gruvbox one Vim Theme*****
-@REM autocmd vimenter * nested colorscheme gruvbox
-@REM set bg=dark
-@REM if (has("termguicolors"))
-@REM   set termguicolors
-@REM endif
-@REM let g:gruvbox_contrast_dark = 'hard'
+" *****gruvbox*****
+autocmd vimenter * ++nested colorscheme gruvbox
+set bg=dark
