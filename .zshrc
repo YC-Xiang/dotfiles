@@ -1,4 +1,4 @@
-if [ -z "$TMUX" ]; then
+if [ -z "$TMUX" ] && [ -z "$VSCODE_INTEGRATED_TERMINAL" ]; then
   exec tmux new-session -A -s workspace
 fi
 
