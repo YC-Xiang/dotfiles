@@ -11,7 +11,9 @@ alias gsh="git stash"
 alias gcp="git cherry-pick"
 alias gre="git rebase"
 alias gam="git commit --amend"
-alias v="vim"
+alias v="nvim"
+alias vim="nvim"
+alias vimm="\vim"
 alias c="cursor"
 
 git config --global alias.br branch

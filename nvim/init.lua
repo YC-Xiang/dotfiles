@@ -1,5 +1,5 @@
 require('options')
 require("keymaps")
-require("plugins")
+require("config.lazy")
 require("colorscheme")
 require('lsp')
