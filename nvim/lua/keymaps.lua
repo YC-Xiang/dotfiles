@@ -1,3 +1,5 @@
+vim.g.mapleader = " "
+
 -- Resize with arrows
 -- delta: 2 lines
 vim.keymap.set("n", "<C-Up>", ":resize -2<CR>", opts)
