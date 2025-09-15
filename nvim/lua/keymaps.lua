@@ -3,7 +3,6 @@ local opts = {
 	silent = true;
 }
 
-
 vim.g.mapleader = " "
 
 vim.keymap.set("n", "<Up>", "<Nop>", opts)
