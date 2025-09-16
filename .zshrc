@@ -131,3 +131,4 @@ fi
 bindkey '^_' autosuggest-accept
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=220'
 
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
