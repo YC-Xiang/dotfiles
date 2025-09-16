@@ -11,3 +11,13 @@ vim.opt.incsearch = true
 vim.opt.hlsearch = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+
+vim.opt.list = true
+vim.opt.listchars = {
+    lead = '·',
+    tab = '▸ ',
+    trail = '·',
+    extends = '›',
+    precedes = '‹',
+    nbsp = '␣'
+}
