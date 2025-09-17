@@ -87,7 +87,6 @@ plugins=(
   zsh-syntax-highlighting
   z
   web-search
-  tmux
 )
 
 source $ZSH/oh-my-zsh.sh
