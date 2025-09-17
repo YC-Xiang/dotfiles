@@ -29,13 +29,13 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.opt.swapfile = false
-
+vim.opt.termguicolors = true
 vim.opt.list = true
-vim.opt.listchars = {
-    lead = '·',
-    tab = '▸ ',
-    trail = '·',
-    extends = '›',
-    precedes = '‹',
-    nbsp = '␣'
-}
+-- vim.opt.listchars = {
+--     lead = '·',
+--     tab = '▸ ',
+--     trail = '·',
+--     extends = '›',
+--     precedes = '‹',
+--     nbsp = '␣'
+-- }
