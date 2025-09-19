@@ -1,34 +1,44 @@
-local opts = {
+
+local base_opts = {
 	noremap = true;
 	silent = true;
 }
 
+local function map(mode, lhs, rhs, desc)
+    vim.keymap.set(mode, lhs, rhs,
+        vim.tbl_extend('force', base_opts, {desc = desc})
+    )
+end
+
 vim.g.mapleader = " "
 
-vim.keymap.set("n", "<Up>", "<Nop>", opts)
-vim.keymap.set("n", "<Down>", "<Nop>", opts)
-vim.keymap.set("n", "<Left>", "<Nop>", opts)
-vim.keymap.set("n", "<Right>", "<Nop>", opts)
-vim.keymap.set("i", "<Up>", "<Nop>", opts)
-vim.keymap.set("i", "<Down>", "<Nop>", opts)
-vim.keymap.set("i", "<Left>", "<Nop>", opts)
-vim.keymap.set("i", "<Right>", "<Nop>", opts)
+-- map("n", "<Up>", "<Nop>", opts)
+-- map("n", "<Down>", "<Nop>", opts)
+-- map("n", "<Left>", "<Nop>", opts)
+-- map("n", "<Right>", "<Nop>", opts)
+-- map("i", "<Up>", "<Nop>", opts)
+-- map("i", "<Down>", "<Nop>", opts)
+-- map("i", "<Left>", "<Nop>", opts)
+-- map("i", "<Right>", "<Nop>", opts)
 
 
-vim.keymap.set("i", "jj", "<Esc>", opts)
+map("i", "jj", "<Esc>", opts)
 
 -- Resize with arrows
 -- delta: 2 lines
-vim.keymap.set("n", "<C-Up>", ":resize -2<CR>", opts)
-vim.keymap.set("n", "<C-Down>", ":resize +2<CR>", opts)
-vim.keymap.set("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+map("n", "<C-Up>", ":resize -2<CR>", "resize -2")
+map("n", "<C-Down>", ":resize +2<CR>", "resize +2")
+map("n", "<C-Left>", ":vertical resize -2<CR>", "vertical resize -2")
+map("n", "<C-Right>", ":vertical resize +2<CR>", "vertical resize +2")
 
 -- nvimTree
-vim.keymap.set('n', "<F2>", ":NvimTreeToggle<CR>", opts)
+map('n', "<F2>", ":NvimTreeToggle<CR>", "NvimTreeToggle")
 
 -- Telescope
-vim.keymap.set('n', '<leader>ff', ":Telescope find_files<CR>", { desc = 'Telescope find files' })
-vim.keymap.set('n', '<leader>fg', ":Telescope live_grep<CR>", { desc = 'Telescope live grep' })
-vim.keymap.set('n', '<leader>fb', ":Telescope buffers<CR>", { desc = 'Telescope buffers' })
-vim.keymap.set('n', '<leader>fh', ":Telescope help_tags<CR>", { desc = 'Telescope help tags' })
+map('n', '<leader>ff', ":Telescope find_files<CR>", ":Telescope find_files")
+map('n', '<leader>fg', ":Telescope live_grep<CR>", ":Telescope live_grep")
+map('n', '<leader>fb', ":Telescope buffers<CR>", ":Telescope buffers")
+map('n', '<leader>fh', ":Telescope help_tags<CR>", ":Telescope help_tags")
+
+map('n', '<leader>bn', ":bn<CR>", "next buffer")
+map('n', '<leader>bp', ":bp<CR>", "previous buffer")
