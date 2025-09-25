@@ -42,3 +42,8 @@ map('n', '<leader>fh', ":Telescope help_tags<CR>", ":Telescope help_tags")
 
 map('n', '<leader>bn', ":bn<CR>", "next buffer")
 map('n', '<leader>bp', ":bp<CR>", "previous buffer")
+
+map('n', "<C-d>", "<C-d>zz")
+map('n', "<C-u>", "<C-u>zz")
+map('n', "n", "nzz")
+map('n', "N", "Nzz")
