@@ -127,7 +127,7 @@ source $ZSH/oh-my-zsh.sh
 if [ -f ~/.aliases ]; then
     source ~/.aliases
 fi
-bindkey '^_' autosuggest-accept
+bindkey '^n' autosuggest-accept
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=220'
 
 export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
