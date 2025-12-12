@@ -8,7 +8,8 @@
     "192.168.31.42": "linux",
     "192.168.0.169": "linux",
     "192.168.168.130": "linux",
-    "192.168.168.132": "linux"
+    "192.168.168.132": "linux",
+    "172.29.57.147": "linux"
   },
   "todo-tree.general.tags": [
     "todo:",
@@ -78,6 +79,22 @@
       "after": ["i", "<C-v>", "<Esc>"]
     }
   ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["g", "r"],
+      "commands": ["editor.action.goToReferences"]
+    }
+  ],
+  "multiCommand.commands": [
+    {
+      "command": "multiCommand.GoToReference",
+      "sequence": [
+        "revealReference",
+        "closeReferenceSearch",
+        "extension.vim_escape"
+      ]
+    }
+  ],
   "vim.handleKeys": {
     "<C-a>": false,
     "<C-c>": false,
@@ -95,21 +112,6 @@
     "<C-v>": false,
     "<C-s>": false,
     "<Shift-Tab>": false
-  },
-  "vscode-neovim.compositeKeys": {
-    "jj": {
-      "command": "vscode-neovim.escape"
-    },
-    "jk": {
-      "command": "vscode-neovim.lua",
-      "args": [
-        [
-          "local code = require('vscode')",
-          "code.action('vscode-neovim.escape')",
-          "code.action('workbench.action.files.save')"
-        ]
-      ]
-    }
   },
   "files.trimFinalNewlines": true,
   "files.insertFinalNewline": true,
@@ -154,7 +156,7 @@
   },
   "editor.lineNumbers": "relative",
   "files.trimTrailingWhitespace": true,
-  "window.zoomLevel": -1,
+  "window.zoomLevel": 0,
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
   },
@@ -163,21 +165,15 @@
     "workbench.action.tasks.configureTaskRunner",
     "workbench.action.tasks.runTask"
   ],
-  "[c]": {
-    "editor.tabSize": 8,
-    "editor.defaultFormatter": "ms-vscode.cpptools"
-  },
   "[python]": {
     "editor.tabSize": 4,
     "editor.insertSpaces": true,
     "editor.defaultFormatter": "ms-python.black-formatter"
   },
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnPaste": true,
   "editor.formatOnType": true,
   "C_Cpp.inactiveRegionOpacity": 0.45,
   "C_Cpp.clang_format_style": "Visual Studio",
-  "clangd.checkUpdates": true,
   "clangd.onConfigChanged": "restart",
   "makefile.configureOnOpen": true,
   "editor.tabCompletion": "onlySnippets",
@@ -189,9 +185,9 @@
       "activityBar.background": "#FaFaFa",
       "editor.selectionBackground": "#5eff0080",
       "editorRuler.foreground": "#e5e5e5"
-    }
+    },
+    "editor.background": "#eeeeee"
   },
-  "editor.semanticHighlighting.enabled": true,
   "editor.tokenColorCustomizations": {
     "[Atom One Light]": {
       "textMateRules": [
@@ -210,8 +206,6 @@
       ]
     }
   },
-  "workbench.preferredDarkColorTheme": "One Dark Pro",
-  "workbench.preferredLightColorTheme": "Atom One Light",
   "window.autoDetectColorScheme": true,
   "editor.hover.delay": 1000,
   "remoteHub.commitDirectlyWarning": "off",
@@ -225,23 +219,36 @@
   "editor.rulers": [80],
   "gitlens.home.preview.enabled": false,
   "workbench.activityBar.orientation": "vertical",
-  "crypto-ticker.interval": 30,
-  "crypto-ticker.onlyRefreshWhenFocused": true,
-  "crypto-ticker.tickers": [
-    {
-      "symbol": "BTC",
-      "currency": "USD",
-      "exchange": "CCCAGG",
-      "template": "{symbol} {price}"
-    },
-    {
-      "symbol": "ETH"
-    }
-  ],
-  "crypto-ticker.lowerColor": "black",
-  "crypto-ticker.higherColor": "black",
   "black-formatter.args": [""],
   "cursor.cpp.enablePartialAccepts": true,
   "editor.inlayHints.enabled": "offUnlessPressed",
-  "editor.detectIndentation": false
+  "workbench.preferredLightColorTheme": "Atom One Light",
+  "editor.detectIndentation": false,
+  "editor.formatOnSave": true,
+  "cursor.cpp.disabledLanguages": ["plaintext", "markdown"],
+  "codesnap.shutterAction": "copy",
+  "codesnap.transparentBackground": true,
+  "codesnap.containerPadding": "0em",
+  "codesnap.showLineNumbers": false,
+  "codesnap.showWindowControls": false,
+  "editor.semanticHighlighting.enabled": true,
+  "gitlens.views.scm.grouped.views": {
+    "commits": true,
+    "branches": true,
+    "remotes": true,
+    "stashes": true,
+    "tags": true,
+    "worktrees": true,
+    "contributors": true,
+    "fileHistory": true,
+    "repositories": true,
+    "searchAndCompare": false,
+    "launchpad": false
+  },
+  "terminal.integrated.env.linux": {
+    "VSCODE_INTEGRATED_TERMINAL": "1"
+  },
+  "terminal.integrated.useWslProfiles": false,
+  "update.mode": "manual",
+  "update.enableWindowsBackgroundUpdates": false,
 }
