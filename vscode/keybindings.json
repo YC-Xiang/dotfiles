@@ -1,89 +1,89 @@
 // 将键绑定放在此文件中以覆盖默认值
 [
-  {
-    "key": "alt+w",
-    "command": "workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup",
-    "when": "!activeEditorGroupEmpty"
-  },
-  {
-    "key": "alt+e",
-    "command": "workbench.action.quickSwitchWindow"
-  },
-  {
-    "key": "ctrl+shift+c",
-    "command": "outline.focus"
-  },
-  {
-    "key": "alt+up",
-    "command": "workbench.action.terminal.resizePaneUp"
-  },
-  {
-    "key": "alt+down",
-    "command": "workbench.action.terminal.resizePaneDown"
-  },
-  {
-    "key": "ctrl+e",
-    "command": "-workbench.action.quickOpen"
-  },
-  {
-    "key": "tab",
-    "command": "workbench.action.quickOpenSelectNext",
-    "when": "inQuickOpen"
-  },
-  {
-    "key": "ctrl+tab",
-    "command": "workbench.action.quickOpenSelectPrevious",
-    "when": "inQuickOpen"
-  },
-  {
-    "key": "alt+f7",
-    "command": "git.revertChange"
-  },
-  {
-    "key": "alt+f1",
-    "command": "git.revertSelectedRanges"
-  },
-  {
-    "key": "ctrl+k ctrl+r",
-    "command": "-git.revertSelectedRanges",
-    "when": "isInDiffEditor && !operationInProgress"
-  },
-  {
-    // 代码块
-    "key": "ctrl+u",
-    "command": "markdown.extension.editing.toggleCodeBlock",
-    "when": "editorLangId == 'markdown'"
-  },
-  {
-    // 代码 span
-    "key": "ctrl+o",
-    "command": "markdown.extension.editing.toggleCodeSpan",
-    "when": "editorLangId == 'markdown'"
-  },
-  {
-    "key": "ctrl+j",
-    "command": "workbench.action.terminal.toggleTerminal",
-    "when": "terminal.active"
-  },
-  {
-    "key": "ctrl+l",
-    "command": "composer.startComposerPrompt"
-  },
-  {
-    "key": "ctrl+i",
-    "command": "-composer.startComposerPrompt"
-  },
-  {
-    "key": "ctrl+shift+s",
-    "command": "workbench.action.files.saveWithoutFormatting"
-  },
-  {
-    "key": "ctrl+m ctrl+shift+s",
-    "command": "-workbench.action.files.saveWithoutFormatting"
-  },
-  {
-    "key": "enter",
-    "command": "multiCommand.GoToReference",
-    "when": "inReferenceSearchEditor || referenceSearchVisible"
-  }
+	{
+	  "key": "alt+w",
+	  "command": "workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup",
+	  "when": "!activeEditorGroupEmpty"
+	},
+	{
+	  "key": "alt+e",
+	  "command": "workbench.action.quickSwitchWindow"
+	},
+	{
+	  "key": "ctrl+shift+c",
+	  "command": "outline.focus"
+	},
+	{
+	  "key": "alt+up",
+	  "command": "workbench.action.terminal.resizePaneUp"
+	},
+	{
+	  "key": "alt+down",
+	  "command": "workbench.action.terminal.resizePaneDown"
+	},
+	{
+	  "key": "ctrl+e",
+	  "command": "-workbench.action.quickOpen"
+	},
+	{
+	  "key": "tab",
+	  "command": "workbench.action.quickOpenSelectNext",
+	  "when": "inQuickOpen"
+	},
+	{
+	  "key": "ctrl+tab",
+	  "command": "workbench.action.quickOpenSelectPrevious",
+	  "when": "inQuickOpen"
+	},
+	{
+	  "key": "alt+f7",
+	  "command": "git.revertChange"
+	},
+	{
+	  "key": "alt+f1",
+	  "command": "git.revertSelectedRanges"
+	},
+	{
+	  "key": "ctrl+k ctrl+r",
+	  "command": "-git.revertSelectedRanges",
+	  "when": "isInDiffEditor && !operationInProgress"
+	},
+	{
+	  // 代码块
+	  "key": "ctrl+u",
+	  "command": "markdown.extension.editing.toggleCodeBlock",
+	  "when": "editorLangId == 'markdown'"
+	},
+	{
+	  // 代码 span
+	  "key": "ctrl+o",
+	  "command": "markdown.extension.editing.toggleCodeSpan",
+	  "when": "editorLangId == 'markdown'"
+	},
+	{
+	  "key": "ctrl+j",
+	  "command": "workbench.action.terminal.toggleTerminal",
+	  "when": "terminal.active"
+	},
+	{
+	  "key": "ctrl+l",
+	  "command": "composer.startComposerPrompt"
+	},
+	{
+	  "key": "ctrl+i",
+	  "command": "-composer.startComposerPrompt"
+	},
+	{
+	  "key": "ctrl+shift+s",
+	  "command": "workbench.action.files.saveWithoutFormatting"
+	},
+	{
+	  "key": "ctrl+m ctrl+shift+s",
+	  "command": "-workbench.action.files.saveWithoutFormatting"
+	},
+	{
+	  "key": "enter",
+	  "command": "multiCommand.GoToReference",
+	  "when": "inReferenceSearchEditor || referenceSearchVisible"
+	}
 ]
