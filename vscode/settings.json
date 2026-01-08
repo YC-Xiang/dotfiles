@@ -3,13 +3,7 @@
     "pcbubs8": "linux",
     "172.29.110.249": "linux",
     "172.29.40.241": "linux",
-    "pcbubs10.realsil.com.cn": "linux",
-    "192.168.31.242": "linux",
-    "192.168.31.42": "linux",
-    "192.168.0.169": "linux",
-    "192.168.168.130": "linux",
-    "192.168.168.132": "linux",
-    "172.29.57.147": "linux"
+    "pcbubs10.realsil.com.cn": "linux"
   },
   "todo-tree.general.tags": [
     "todo:",
@@ -88,11 +82,17 @@
   "multiCommand.commands": [
     {
       "command": "multiCommand.GoToReference",
+      "interval": 50,
       "sequence": [
         "revealReference",
         "closeReferenceSearch",
         "extension.vim_escape"
       ]
+    },
+    {
+      "command": "multiCommand.ExitSearch",
+      "interval": 50,
+      "sequence": ["closeFindWidget", "extension.vim_escape"]
     }
   ],
   "vim.handleKeys": {
@@ -122,7 +122,6 @@
   "editor.tabSize": 8,
   "editor.suggestSelection": "first",
   "editor.unicodeHighlight.invisibleCharacters": false,
-  "oneDarkPro.italic": false,
   "gitlens.codeLens.enabled": false,
   "markdownlint.config": {
     "MD010": false,
@@ -149,22 +148,12 @@
   "cmake.configureOnOpen": true,
   "cmake.showConfigureWithDebuggerNotification": false,
   "diffEditor.ignoreTrimWhitespace": false,
-  "codeium.enableCodeLens": false,
-  "codeium.enableConfig": {
-    "*": true,
-    "markdown": true
-  },
   "editor.lineNumbers": "relative",
   "files.trimTrailingWhitespace": true,
   "window.zoomLevel": 0,
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
   },
-  "clangd.path": "c:\\Users\\yucheng_xiang\\AppData\\Roaming\\Code\\User\\globalStorage\\llvm-vs-code-extensions.vscode-clangd\\install\\18.1.3\\clangd_18.1.3\\bin\\clangd.exe",
-  "cmake.pinnedCommands": [
-    "workbench.action.tasks.configureTaskRunner",
-    "workbench.action.tasks.runTask"
-  ],
   "[python]": {
     "editor.tabSize": 4,
     "editor.insertSpaces": true,
@@ -172,8 +161,6 @@
   },
   "editor.formatOnPaste": true,
   "editor.formatOnType": true,
-  "C_Cpp.inactiveRegionOpacity": 0.45,
-  "C_Cpp.clang_format_style": "Visual Studio",
   "clangd.onConfigChanged": "restart",
   "makefile.configureOnOpen": true,
   "editor.tabCompletion": "onlySnippets",
@@ -253,64 +240,6 @@
     "sz000333",
     "sh513130"
   ],
-  "leek-fund.stockPrice": {
-    "sz399001": {
-      "name": " 深证成指 ",
-      "amount": 0,
-      "price": "9965.024",
-      "unitPrice": 0,
-      "earnings": 0
-    },
-    "sh601138": {
-      "name": " 工业富联 ",
-      "amount": 4900,
-      "price": "23.53",
-      "unitPrice": 24.85,
-      "earnings": 0
-    },
-    "sz002130": {
-      "name": " 沃尔核材 ",
-      "amount": 0,
-      "price": "15.92",
-      "unitPrice": 0,
-      "earnings": 0
-    },
-    "sz002463": {
-      "name": " 沪电股份 ",
-      "amount": 0,
-      "price": "39.50",
-      "unitPrice": 0,
-      "earnings": 0
-    },
-    "sz300502": {
-      "name": " 新易盛 ",
-      "amount": 0,
-      "price": "133.45",
-      "unitPrice": 0,
-      "earnings": 0
-    },
-    "sz300563": {
-      "name": " 神宇股份 ",
-      "amount": 0,
-      "price": "53.15",
-      "unitPrice": 0,
-      "earnings": 0
-    },
-    "hk03690": {
-      "name": " 美团 -W",
-      "amount": 0,
-      "price": "173.2",
-      "unitPrice": 0,
-      "earnings": 0
-    },
-    "hk00700": {
-      "name": " 腾讯控股 ",
-      "amount": 0,
-      "price": "415.8",
-      "unitPrice": 0,
-      "earnings": 0
-    }
-  },
   "leek-fund.stockSort": -1,
   "leek-fund.stockHeldTipShow": false,
   "leek-fund.flash-news": true,
