@@ -142,6 +142,7 @@ fi
 
 if [[ "$OSTYPE" == "darwin*" ]]; then
     PATH=$PATH:/usr/local/opt/riscv-gnu-toolchain/bin
+    alias git='LANG=en_GB git'
 else
     export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 fi
