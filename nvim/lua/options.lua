@@ -16,6 +16,23 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "python", "c", "sh" },
+  callback = function()
+    vim.opt_local.textwidth = 80
+    vim.opt_local.colorcolumn = "+1"
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "rust", "java" },
+  callback = function()
+    vim.opt_local.textwidth = 100
+    vim.opt_local.colorcolumn = "+1"
+  end,
+})
+
+
+vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "py", "lua" },
 	callback = function()
 		vim.opt.tabstop = 4 -- the number of visual spaces per TAB
