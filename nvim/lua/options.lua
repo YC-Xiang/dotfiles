@@ -15,6 +15,24 @@ vim.opt.hlsearch = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
+local ft_settings = {
+  python    = { textwidth = 80,  colorcolumn = "+1" },
+  c         = { textwidth = 80,  colorcolumn = "+1" },
+  sh        = { textwidth = 80,  colorcolumn = "+1" },
+  rust      = { textwidth = 100, colorcolumn = "+1" },
+  java      = { textwidth = 100, colorcolumn = "+1" },
+  gitcommit = { textwidth = 72,  colorcolumn = "51,73", spell = true },
+}
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = vim.tbl_keys(ft_settings),
+  callback = function(args)
+    for opt, val in pairs(ft_settings[args.match]) do
+      vim.opt_local[opt] = val
+    end
+  end,
+})
+
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "py", "lua" },
 	callback = function()
