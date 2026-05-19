@@ -84,6 +84,11 @@
     "when": "inReferenceSearchEditor || referenceSearchVisible"
   },
   {
+    "key": ";",
+    "command": "multiCommand.GoToReference",
+    "when": "inReferenceSearchEditor || referenceSearchVisible"
+  },
+  {
     "key": "escape",
     "command": "multiCommand.ExitSearch",
     "when": "editorFocus && findWidgetVisible && !isComposing"
@@ -92,5 +97,23 @@
     "key": "escape",
     "command": "-closeFindWidget",
     "when": "editorFocus && findWidgetVisible && !isComposing"
+  },
+  {
+    "key": "alt+f6",
+    "command": "git.stageChange"
+  },
+  {
+    "key": "alt+f6",
+    "command": "-editor.action.accessibleViewDisableHint",
+    "when": "accessibilityHelpIsShown && accessibleViewVerbosityEnabled || accessibleViewIsShown && accessibleViewVerbosityEnabled"
+  },
+  {
+    "key": "ctrl+1",
+    "command": "workbench.action.focusFirstEditorGroup"
+  },
+  {
+    "key": "ctrl+1",
+    "command": "-workbench.action.focusFirstEditorGroup",
+    "when": "!cursor.chatEditorGroup.enabled"
   }
 ]
