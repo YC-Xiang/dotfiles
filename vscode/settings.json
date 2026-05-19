@@ -5,18 +5,55 @@
     "pcbubs10.realsil.com.cn": "linux"
   },
   // program language configs
+  "[c]": {
+    "editor.tabSize": 8,
+    "editor.insertSpaces": false,
+    "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
+  },
+  "[cpp]": {
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
+  },
+  "clangd.arguments": [
+    "--log=error",
+    "--header-insertion=never",
+    "--query-driver=/**/*"
+  ],
+  "clangd.onConfigChanged": "restart",
+  "C_Cpp.intelliSenseEngine": "disabled",
   "[python]": {
     "editor.tabSize": 4,
-    "editor.insertSpaces": true
+    "editor.insertSpaces": true,
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.codeActionsOnSave": {
+      "source.organizeImports.isort": "explicit"
+    }
   },
+  "isort.args": [
+    "--profile",
+    "black"
+  ],
   "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features",
     "editor.tabSize": 2,
     "editor.insertSpaces": true
   },
   "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features",
     "editor.tabSize": 2,
     "editor.insertSpaces": true
   },
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer",
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit",
+      "source.fixAll": "explicit"
+    }
+  },
+  "rust-analyzer.check.command": "clippy",
   // editor configs
   "editor.insertSpaces": false,
   "editor.tabSize": 8,
@@ -78,8 +115,12 @@
   "terminal.integrated.env.linux": {
     "VSCODE_INTEGRATED_TERMINAL": "1"
   },
+  "terminal.integrated.env.osx": {
+    "VSCODE_INTEGRATED_TERMINAL": "1"
+  },
   "terminal.integrated.defaultProfile.windows": "Git Bash",
   "terminal.integrated.defaultProfile.linux": "zsh",
+  "terminal.integrated.defaultProfile.osx": "zsh",
   "terminal.integrated.useWslProfiles": false,
   /** MISC configs **/
   "git.autofetch": true,
@@ -262,8 +303,6 @@
   "cmake.showOptionsMovedNotification": false,
   "cmake.configureOnOpen": true,
   "cmake.showConfigureWithDebuggerNotification": false,
-  // clangd
-  "clangd.onConfigChanged": "restart",
   // cursor
   "cursor.cpp.enablePartialAccepts": true,
   "cursor.composer.usageSummaryDisplay": "always",
