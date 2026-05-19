@@ -2,56 +2,93 @@
   "remote.SSH.remotePlatform": {
     "pcbubs8": "linux",
     "172.29.110.249": "linux",
-    "172.29.40.241": "linux",
     "pcbubs10.realsil.com.cn": "linux"
   },
-  "todo-tree.general.tags": [
-    "todo:",
-    "fixme:",
-    "Note:",
-    "Todo:",
-    "Fixme:",
-    "???"
+  // program language configs
+  "[python]": {
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true
+  },
+  "[json]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+  "[jsonc]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+  // editor configs
+  "editor.insertSpaces": false,
+  "editor.tabSize": 8,
+  "editor.suggestSelection": "first",
+  "editor.unicodeHighlight.invisibleCharacters": false,
+  "editor.formatOnPaste": true,
+  "editor.formatOnType": true,
+  "editor.formatOnSave": true,
+  "editor.tabCompletion": "onlySnippets",
+  "editor.detectIndentation": false,
+  "editor.fontLigatures": true,
+  "editor.fontFamily": "Fira Code, Consolas, 'Courier New', monospace",
+  "editor.lineHeight": 1.5,
+  "editor.lineNumbers": "relative",
+  "editor.rulers": [
+    80
   ],
-  "todo-tree.highlights.customHighlight": {
-    "BUG": {
-      "icon": "bug"
-    },
-    "HACK": {
-      "icon": "tools"
-    },
-    "FIXME": {
-      "icon": "flame"
-    },
-    "XXX": {
-      "icon": "x"
-    },
-    "[ ]": {
-      "icon": "issue-draft"
-    },
-    "[x]": {
-      "icon": "issue-closed"
+  "editor.hover.delay": 1000,
+  "editor.semanticHighlighting.enabled": true,
+  "editor.inlayHints.enabled": "offUnlessPressed",
+  // files
+  "files.trimTrailingWhitespace": true,
+  "files.trimFinalNewlines": true,
+  "files.insertFinalNewline": true,
+  "files.eol": "\n",
+  // theme and workbench configs
+  "workbench.activityBar.orientation": "vertical",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.preferredLightColorTheme": "Atom One Light",
+  "workbench.colorTheme": "Atom One Light",
+  "workbench.colorCustomizations": {
+    "[Atom One Light]": {
+      "editor.background": "#F7F7F7",
+      "editor.selectionBackground": "#526FFF26",
+      "sideBar.background": "#EFEFEF",
+      "activityBar.background": "#F7F7F7",
+      "editorRuler.foreground": "#E0E0E0"
     }
   },
-  "todo-tree.highlights.foregroundColourScheme": [
-    "black",
-    "black",
-    "white",
-    "black",
-    "black",
-    "white"
-  ],
-  "todo-tree.highlights.useColourScheme": true,
-  "todo-tree.highlights.backgroundColourScheme": [
-    "yellow",
-    "orange",
-    "violet",
-    "yellow",
-    "orange",
-    "violet",
-    "indigo",
-    "green"
-  ],
+  "editor.tokenColorCustomizations": {
+    "[Atom One Light]": {
+      "textMateRules": [
+        {
+          "scope": "entity.name.function.preprocessor",
+          "settings": {
+            "foreground": "#986801"
+          }
+        },
+        {
+          "scope": "variable.parameter",
+          "settings": {
+            "foreground": "#0184BC"
+          }
+        }
+      ]
+    }
+  },
+  /** terminal configs **/
+  "terminal.integrated.env.linux": {
+    "VSCODE_INTEGRATED_TERMINAL": "1"
+  },
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  "terminal.integrated.useWslProfiles": false,
+  /** MISC configs **/
+  "git.autofetch": true,
+  "update.enableWindowsBackgroundUpdates": false,
+  "remote.autoForwardPortsSource": "hybrid",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "explorer.openEditors.sortOrder": "alphabetical",
+  /** extension configs **/
+  // VIM configs
   "vim.useSystemClipboard": true,
   "vim.incsearch": true,
   "vim.hlsearch": true,
@@ -59,40 +96,45 @@
   "vim.leader": "<space>",
   "vim.insertModeKeyBindings": [
     {
-      "before": ["j", "j"],
-      "after": ["<Esc>"]
+      "before": [
+        "j",
+        "j"
+      ],
+      "after": [
+        "<Esc>"
+      ]
     }
   ],
   "vim.normalModeKeyBindings": [
     {
-      "before": ["<Enter>"],
-      "after": ["o", "<Esc>"]
+      "before": [
+        "<Enter>"
+      ],
+      "after": [
+        "o",
+        "<Esc>"
+      ]
     },
     {
-      "before": ["<C-v>"],
-      "after": ["i", "<C-v>", "<Esc>"]
+      "before": [
+        "<C-v>"
+      ],
+      "after": [
+        "i",
+        "<C-v>",
+        "<Esc>"
+      ]
     }
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "before": ["g", "r"],
-      "commands": ["editor.action.goToReferences"]
-    }
-  ],
-  "multiCommand.commands": [
-    {
-      "command": "multiCommand.GoToReference",
-      "interval": 50,
-      "sequence": [
-        "revealReference",
-        "closeReferenceSearch",
-        "extension.vim_escape"
+      "before": [
+        "g",
+        "r"
+      ],
+      "commands": [
+        "editor.action.goToReferences"
       ]
-    },
-    {
-      "command": "multiCommand.ExitSearch",
-      "interval": 50,
-      "sequence": ["closeFindWidget", "extension.vim_escape"]
     }
   ],
   "vim.handleKeys": {
@@ -111,18 +153,101 @@
     "<C-k>": false,
     "<C-v>": false,
     "<C-s>": false,
+    "<C-m>": false,
     "<Shift-Tab>": false
   },
-  "files.trimFinalNewlines": true,
-  "files.insertFinalNewline": true,
-  "files.exclude": {
-    "**/.git": false
+  "vim.commandLineModeKeyBindingsNonRecursive": [],
+  // TODO tree
+  "todo-tree.general.tags": [
+    "???",
+    "NOTE:",
+    "Note:",
+    "BUG:",
+    "Bug:",
+    "HACK:",
+    "Hack:",
+    "FIXME:",
+    "Fixme:",
+    "TODO:",
+    "Todo:"
+  ],
+  "todo-tree.highlights.defaultHighlight": {
+    "icon": "smiley",
+    "type": "tag",
+    "foreground": "#ffffff",
+    "background": "#47da03",
+    "opacity": 50,
+    "iconColour": "#47da03"
   },
-  "editor.insertSpaces": false,
-  "editor.tabSize": 8,
-  "editor.suggestSelection": "first",
-  "editor.unicodeHighlight.invisibleCharacters": false,
-  "gitlens.codeLens.enabled": false,
+  "todo-tree.highlights.customHighlight": {
+    "TODO:": {
+      "icon": "check",
+      "foreground": "#ffffff",
+      "background": "#FFA500",
+      "iconColour": "#FFA500"
+    },
+    "Todo:": {
+      "icon": "check",
+      "foreground": "#ffffff",
+      "background": "#FFA500",
+      "iconColour": "#FFA500"
+    },
+    "FIXME:": {
+      "icon": "info",
+      "foreground": "#ffffff",
+      "background": "#FF1493",
+      "iconColour": "#FF1493"
+    },
+    "Fixme:": {
+      "icon": "info",
+      "foreground": "#ffffff",
+      "background": "#FF1493",
+      "iconColour": "#FF1493"
+    },
+    "BUG:": {
+      "icon": "alert",
+      "foreground": "#ffffff",
+      "background": "#ff1414",
+      "iconColour": "#ff1414"
+    },
+    "HACK:": {
+      "icon": "alert",
+      "foreground": "#ffffff",
+      "background": "#0099ff",
+      "iconColour": "#0099ff"
+    }
+  },
+  "todo-tree.regex.regex": "(//|^\\s*\\*|#|<!--|;|/\\*|^|^[ \\t]*(-|\\d+.))\\s*($TAGS)",
+  // multiCommand configs
+  "multiCommand.commands": [
+    {
+      "command": "multiCommand.GoToReference",
+      "interval": 50,
+      "sequence": [
+        "revealReference",
+        "closeReferenceSearch",
+        "extension.vim_escape"
+      ]
+    },
+    {
+      "command": "multiCommand.ExitSearch",
+      "interval": 50,
+      "sequence": [
+        "closeFindWidget",
+        "extension.vim_escape"
+      ]
+    },
+    {
+      "command": "multiCommand.jump",
+      "interval": 50,
+      "sequence": [
+        "revealReference",
+        "closeReferenceSearch",
+        "extension.vim_escape"
+      ]
+    }
+  ],
+  // markdownlint
   "markdownlint.config": {
     "MD010": false,
     "MD014": false,
@@ -133,139 +258,18 @@
     "MD036": false,
     "MD038": false
   },
-  "explorer.confirmDelete": false,
-  "workbench.iconTheme": "material-icon-theme",
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "security.workspace.trust.untrustedFiles": "open",
-  "terminal.integrated.defaultProfile.windows": "Git Bash",
-  "C_Cpp.files.exclude": {
-    "**/.vscode": true,
-    "**/.vs": true
-  },
-  "vim.commandLineModeKeyBindingsNonRecursive": [],
-  "git.autofetch": true,
+  // cmake
   "cmake.showOptionsMovedNotification": false,
   "cmake.configureOnOpen": true,
   "cmake.showConfigureWithDebuggerNotification": false,
-  "diffEditor.ignoreTrimWhitespace": false,
-  "editor.lineNumbers": "relative",
-  "files.trimTrailingWhitespace": true,
-  "window.zoomLevel": 0,
-  "extensions.experimental.affinity": {
-    "asvetliakov.vscode-neovim": 1
-  },
-  "[python]": {
-    "editor.tabSize": 4,
-    "editor.insertSpaces": true,
-    "editor.defaultFormatter": "ms-python.black-formatter"
-  },
-  "editor.formatOnPaste": true,
-  "editor.formatOnType": true,
+  // clangd
   "clangd.onConfigChanged": "restart",
-  "makefile.configureOnOpen": true,
-  "editor.tabCompletion": "onlySnippets",
-  "workbench.colorTheme": "Atom One Light",
-  "workbench.colorCustomizations": {
-    "[Atom One Light]": {
-      "editor.background": "#F5F5F5",
-      "sideBar.background": "#dddddd",
-      "activityBar.background": "#FaFaFa",
-      "editor.selectionBackground": "#5eff0080",
-      "editorRuler.foreground": "#e5e5e5"
-    },
-    "editor.background": "#eeeeee"
-  },
-  "editor.tokenColorCustomizations": {
-    "[Atom One Light]": {
-      "textMateRules": [
-        {
-          "scope": "entity.name.function.preprocessor",
-          "settings": {
-            "foreground": "#aca600"
-          }
-        },
-        {
-          "scope": "variable.parameter",
-          "settings": {
-            "foreground": "#00afaf"
-          }
-        }
-      ]
-    }
-  },
-  "window.autoDetectColorScheme": true,
-  "editor.hover.delay": 1000,
-  "remoteHub.commitDirectlyWarning": "off",
-  "leek-fund.statusBarStock": [],
-  "leek-fund.stocks": [
-    "sh000001",
-    "sz399001",
-    "hk03690",
-    "hk00700",
-    "usr_ixic",
-    "usr_dji",
-    "usr_inx",
-    "nf_IF0",
-    "nf_IH0",
-    "nf_IC0",
-    "nf_IM0",
-    "hf_OIL",
-    "hf_CHA50CFD",
-    "sz159915",
-    "sz002130",
-    "sh601138",
-    "sz002463",
-    "sz300502",
-    "usr_nvda",
-    "sz300308",
-    "sh603893",
-    "sz002851",
-    "sh603516",
-    "sz300476",
-    "sz300570",
-    "sh600519",
-    "sz002384",
-    "sz300866",
-    "sz002475",
-    "sh603063",
-    "sz000811",
-    "hk03750",
-    "sh601166",
-    "sz002594",
-    "sz300750",
-    "sh600809",
-    "sz000858",
-    "sh600036",
-    "sh600030",
-    "sz000333",
-    "sh513130"
-  ],
-  "leek-fund.stockSort": -1,
-  "leek-fund.stockHeldTipShow": false,
-  "leek-fund.flash-news": true,
-  "explorer.openEditors.sortOrder": "alphabetical",
-  "C_Cpp.intelliSenseEngine": "disabled",
-  "workbench.editorAssociations": {
-    "*.bin": "default"
-  },
-  "files.eol": "\n",
-  "terminal.integrated.defaultProfile.linux": "zsh",
-  "editor.rulers": [80],
-  "gitlens.home.preview.enabled": false,
-  "workbench.activityBar.orientation": "vertical",
-  "black-formatter.args": [""],
+  // cursor
   "cursor.cpp.enablePartialAccepts": true,
-  "editor.inlayHints.enabled": "offUnlessPressed",
-  "workbench.preferredLightColorTheme": "Atom One Light",
-  "editor.detectIndentation": false,
-  "editor.formatOnSave": true,
-  "cursor.cpp.disabledLanguages": ["plaintext", "markdown"],
-  "codesnap.shutterAction": "copy",
-  "codesnap.transparentBackground": true,
-  "codesnap.containerPadding": "0em",
-  "codesnap.showLineNumbers": false,
-  "codesnap.showWindowControls": false,
-  "editor.semanticHighlighting.enabled": true,
+  "cursor.composer.usageSummaryDisplay": "always",
+  // gitlens
+  "gitlens.codeLens.enabled": false,
+  "gitlens.views.commits.showStashes": true,
   "gitlens.views.scm.grouped.views": {
     "commits": true,
     "branches": true,
@@ -278,12 +282,5 @@
     "repositories": true,
     "searchAndCompare": false,
     "launchpad": false
-  },
-  "terminal.integrated.env.linux": {
-    "VSCODE_INTEGRATED_TERMINAL": "1"
-  },
-  "terminal.integrated.useWslProfiles": false,
-  "update.mode": "manual",
-  "update.enableWindowsBackgroundUpdates": false,
-  "leek-fund.hideStatusBarStock": true
+  }
 }
