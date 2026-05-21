@@ -18,7 +18,8 @@
   "clangd.arguments": [
     "--log=error",
     "--header-insertion=never",
-    "--query-driver=/**/*"
+    "--query-driver=/**/*",
+    "--clang-tidy"
   ],
   "clangd.onConfigChanged": "restart",
   "C_Cpp.intelliSenseEngine": "disabled",
