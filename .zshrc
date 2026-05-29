@@ -140,9 +140,8 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-if [[ "$OSTYPE" == "darwin*" ]]; then
-    PATH=$PATH:/usr/local/opt/riscv-gnu-toolchain/bin
-    alias git='LANG=en_GB git'
-else
-    export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+
+if [ -f "$HOME/.zshrc.local" ]; then
+    source "$HOME/.zshrc.local"
 fi
