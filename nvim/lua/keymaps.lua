@@ -43,6 +43,10 @@ map('n', '<leader>fh', ":Telescope help_tags<CR>", ":Telescope help_tags")
 map('n', '<leader>bn', ":bn<CR>", "next buffer")
 map('n', '<leader>bp', ":bp<CR>", "previous buffer")
 
+-- bufferline
+vim.keymap.set("n", "<S-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "切换到左侧 Buffer" })
+vim.keymap.set("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "切换到右侧 Buffer" })
+
 map('n', "<C-d>", "<C-d>zz")
 map('n', "<C-u>", "<C-u>zz")
 map('n', "n", "nzz")
