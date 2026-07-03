@@ -1,7 +1,6 @@
 ---
 name: git-commit
 description: Analyze the currently staged git diff and generate a Conventional Commits compliant commit message, then commit.
-disable-model-invocation: true
 allowed-tools: Bash(git *)
 ---
 
@@ -72,7 +71,7 @@ git commit -s -F - <<'EOF'
 EOF
 ```
 
-Then run the following and show its raw output to the user inside a
+Then run the following command and show its raw output to the user inside a
 fenced code block.
 
 ```bash
