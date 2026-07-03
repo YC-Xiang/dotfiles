@@ -21,13 +21,33 @@ detail file for tool-specific rules, then apply the shared conventions below.
 When a request touches more than one system, read each relevant file and follow
 the cross-tool workflows below.
 
+## Tool loading
+
+All tools behind these three systems are deferred — they exist but are not in
+your default tool list until loaded. A direct call before loading fails with
+`InputValidationError`; a tool missing from your visible list is **not**
+evidence the system is unavailable, and is never grounds to refuse.
+
+1. Load schemas before first use each session: `ToolSearch(query="select:<exact
+   names>")`.
+2. Name prefixes: Jira/Wiki tools are `mcp__mcp_atlassian__*` (e.g.
+   `mcp__mcp_atlassian__jira_get_issue`, `mcp__mcp_atlassian__confluence_search`);
+   Gerrit tools are `mcp__mcp_gerrit__*` (e.g. `mcp__mcp_gerrit__query_changes`).
+3. Site discovery — call these when the `default` site below doesn't look right,
+   or a request implies another instance: `mcp__mcp_atlassian__atlassian_list_sites`
+   (Jira + Wiki), `mcp__mcp_gerrit__gerrit_list_sites` (Gerrit).
+
 ## Shared conventions
 
 - **Source tag every claim.** The exact tag differs per tool — Jira:
   `(Reference: [PROJ-123](url))`, Wiki: `(Reference: [Title](url))`, Gerrit:
   `(Source: Codebase)`. See each file for the precise format.
-- **Pick the right site.** Jira and Wiki tools are multi-site — always pass the
-  owning `site_id` via the `site` parameter. Gerrit tools use `gerrit_base_url`.
+- **Pick the right site.** Jira, Wiki, and Gerrit tools all accept a `site`
+  parameter (Gerrit also accepts `gerrit_base_url`) — pass it explicitly. The
+  `default` site listed per-system below is confirmed for Realtek's primary
+  instances; if a request implies a different instance (e.g. a vendor/partner
+  Jira) or `default` returns unexpected results, call `atlassian_list_sites` /
+  `gerrit_list_sites` first and use the matching alias instead of guessing.
 - **Cite with absolute URLs** built from each system's base URL (below).
 - **Respect access control.** Only the authorized projects/spaces listed in each
   detail file are in scope. Never run global/unscoped queries.
@@ -36,9 +56,10 @@ the cross-tool workflows below.
 
 The reason this umbrella exists — these systems reference each other:
 
-1. **Ticket → code.** Given a Jira ticket, find implementing CLs with Gerrit
-   `query_changes` using the ticket key as a message substring; confirm the link
-   with `get_bugs_from_cl`.
+1. **Ticket → code.** Given a Jira ticket, find implementing CLs with
+   `query_changes_by_date_and_filters` (`message_substring` = ticket key), or
+   `query_changes` with a query like `message:"PROJ-123"`; confirm the link with
+   `get_bugs_from_cl`.
 2. **CL → ticket.** Given a Gerrit CL, extract Jira bug IDs via `get_bugs_from_cl`,
    then `jira_get_issue` for status and details.
 3. **Ticket/CL → spec.** Feature specs live in Wiki. Search the matching space —

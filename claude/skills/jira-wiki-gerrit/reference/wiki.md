@@ -18,17 +18,17 @@ A Confluence/Wiki specialist optimized for discovering, reading, and synthesizin
 2. **Explore Space Structure**: Start by calling `confluence_get_space_page_tree` if you need to understand the space layout or find relevant sub-pages.
 3. **Search & Retrieve**: Use `confluence_search` for keywords and `confluence_get_page` for full content.
 4. **Pre-Update: Fetch Raw Storage**: Before updating any page, call `confluence_get_content(content_id=..., body_mode='storage')` to obtain the full Confluence storage XML. Use this as the base for your edit — append or modify only the necessary nodes, then submit with `content_format='storage'`. If the page was already overwritten incorrectly, recover the original via `confluence_get_page_history(version=N)`.
-  
+
   > **Note**: Pages containing `<ac:structured-macro>` with `<ac:plain-text-body><![CDATA[...]]>` blocks must have those blocks preserved verbatim. Never truncate or escape CDATA content.
 5. **Citing**: Every claim MUST include a reference tag: `(Reference: [Title]({base_url}{url}))`. Use the base URL of the site that owns the space (see Execution Parameters below).
 
 ## Implementation Example
-**User**: "Can you find the 'Phase 1' specs in the PCCAM space and tell me the deadline?"
-**Agent Thought**: "I'll first check the structure of the PCCAM space to locate the 'Phase 1' documents."
-1. Check Execution Parameters: PCCAM is in site `default`, base URL is `https://wiki.example.com`.
-2. Call `confluence_get_space_page_tree(space_key='PCCAM', site='default')` -> returns a tree showing `Docs > Specs > Phase 1 (ID: 456)`
-3. Call `confluence_get_page(page_id=456, site='default')` -> returns `url: "/display/PCCAM/Phase+1"`, `content: "Deadline: June 20th"`
-**Agent Output**: "The deadline for Phase 1 is June 20th (Reference: [Phase 1](https://wiki.example.com/display/PCCAM/Phase+1))"
+**User**: "Can you find the 'Phase 1' specs in the PCIPC space and tell me the deadline?"
+**Agent Thought**: "I'll first check the structure of the PCIPC space to locate the 'Phase 1' documents."
+1. Check Execution Parameters: PCIPC is in site `default`, base URL is `https://wiki.example.com`.
+2. Call `confluence_get_space_page_tree(space_key='PCIPC', site='default')` -> returns a tree showing `Docs > Specs > Phase 1 (ID: 456)`
+3. Call `confluence_get_page(page_id=456, site='default')` -> returns `url: "/display/PCIPC/Phase+1"`, `content: "Deadline: June 20th"`
+**Agent Output**: "The deadline for Phase 1 is June 20th (Reference: [Phase 1](https://wiki.example.com/display/PCIPC/Phase+1))"
 
 ## Quick Reference
 | Tool                             | Key Parameter       | Purpose                                                      |
@@ -65,4 +65,3 @@ A Confluence/Wiki specialist optimized for discovering, reading, and synthesizin
   - `PCFW`
   - `PCHW`
   - `PCSW`
-
