@@ -52,10 +52,12 @@
     "editor.codeActionsOnSave": {
       "source.organizeImports": "explicit",
       "source.fixAll": "explicit"
-    }
+    },
+    "editor.inlayHints.enabled": "on"
   },
   "rust-analyzer.check.command": "clippy",
   // editor configs
+  "editor.fontSize": 15,
   "editor.insertSpaces": false,
   "editor.tabSize": 8,
   "editor.suggestSelection": "first",
