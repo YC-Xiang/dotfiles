@@ -52,12 +52,14 @@
     "editor.codeActionsOnSave": {
       "source.organizeImports": "explicit",
       "source.fixAll": "explicit"
-    }
+    },
+    "editor.inlayHints.fontSize": 11,
+    "editor.inlayHints.padding": true
   },
   "rust-analyzer.check.command": "clippy",
   "rust-analyzer.inlayHints.typeHints.enable": true,
-  "rust-analyzer.inlayHints.parameterHints.enable": true,
-  "rust-analyzer.inlayHints.chainingHints.enable": true,
+  "rust-analyzer.inlayHints.parameterHints.enable": false,
+  "rust-analyzer.inlayHints.chainingHints.enable": false,
   "rust-analyzer.inlayHints.closureReturnTypeHints.enable": "with_block",
   "rust-analyzer.inlayHints.lifetimeElisionHints.enable": "skip_trivial",
   "rust-analyzer.inlayHints.bindingModeHints.enable": false,
@@ -330,5 +332,10 @@
     "repositories": true,
     "searchAndCompare": false,
     "launchpad": false
-  }
+  },
+  "cursor.cpp.disabledLanguages": [
+    "markdown",
+    "plaintext",
+    "rust"
+  ]
 }
