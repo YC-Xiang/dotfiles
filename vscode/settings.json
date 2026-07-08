@@ -52,10 +52,16 @@
     "editor.codeActionsOnSave": {
       "source.organizeImports": "explicit",
       "source.fixAll": "explicit"
-    },
-    "editor.inlayHints.enabled": "on"
+    }
   },
   "rust-analyzer.check.command": "clippy",
+  "rust-analyzer.inlayHints.typeHints.enable": true,
+  "rust-analyzer.inlayHints.parameterHints.enable": true,
+  "rust-analyzer.inlayHints.chainingHints.enable": true,
+  "rust-analyzer.inlayHints.closureReturnTypeHints.enable": "with_block",
+  "rust-analyzer.inlayHints.lifetimeElisionHints.enable": "skip_trivial",
+  "rust-analyzer.inlayHints.bindingModeHints.enable": false,
+  "rust-analyzer.inlayHints.reborrowHints.enable": "never",
   // editor configs
   "editor.fontSize": 15,
   "editor.insertSpaces": false,
