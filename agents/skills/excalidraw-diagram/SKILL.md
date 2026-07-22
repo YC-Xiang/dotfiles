@@ -198,8 +198,13 @@ Before JSON, mentally trace how the eye moves through the diagram. There should 
 ### Step 5: Generate JSON
 Only now create the Excalidraw elements. **See below for how to handle large diagrams.**
 
-### Step 6: Render & Validate (MANDATORY)
-After generating the JSON, you MUST run the render-view-fix loop until the diagram looks right. This is not optional — see the **Render & Validate** section below for the full process.
+### Step 6: Structural self-check
+Do not render to PNG (no browser on headless servers). After writing JSON, re-read the file and check:
+- Every `startBinding` / `endBinding` / `containerId` / `boundElements` id references an existing element
+- Text `width`/`height` is plausible for the content (avoid clipped labels)
+- No two major shapes share nearly identical `x,y` (unintended overlap)
+- Arrows' `points` move in the intended direction and land near bound targets
+- Spacing between peer elements is roughly consistent
 
 ---
 
@@ -224,11 +229,7 @@ After all sections are in place, read through the complete JSON and check:
 - Is the overall spacing balanced, or are some sections cramped while others have too much whitespace?
 - Do IDs and bindings all reference elements that actually exist?
 
-Fix any alignment or binding issues before rendering.
-
-**Phase 3: Render & validate**
-
-Now run the render-view-fix loop from the Render & Validate section. This is where you'll catch visual issues that aren't obvious from JSON — overlaps, clipping, imbalanced composition.
+Fix any alignment or binding issues with the structural self-check (Step 6).
 
 ### Section Boundaries
 
@@ -440,71 +441,9 @@ Settings: `fontSize: 16`, `fontFamily: 3`, `textAlign: "center"`, `verticalAlign
 
 See `references/element-templates.md` for copy-paste JSON templates for each element type (text, line, dot, rectangle, arrow). Pull colors from `references/color-palette.md` based on each element's semantic purpose.
 
----
+Schema field reference: `references/json-schema.md`.
 
-## Render & Validate (MANDATORY)
-
-You cannot judge a diagram from JSON alone. After generating or editing the Excalidraw JSON, you MUST render it to PNG, view the image, and fix what you see — in a loop until it's right. This is a core part of the workflow, not a final check.
-
-### How to Render
-
-```bash
-cd .claude/skills/excalidraw-diagram/references && uv run python render_excalidraw.py <path-to-file.excalidraw>
-```
-
-This outputs a PNG next to the `.excalidraw` file. Then use the **Read tool** on the PNG to actually view it.
-
-### The Loop
-
-After generating the initial JSON, run this cycle:
-
-**1. Render & View** — Run the render script, then Read the PNG.
-
-**2. Audit against your original vision** — Before looking for bugs, compare the rendered result to what you designed in Steps 1-4. Ask:
-- Does the visual structure match the conceptual structure you planned?
-- Does each section use the pattern you intended (fan-out, convergence, timeline, etc.)?
-- Does the eye flow through the diagram in the order you designed?
-- Is the visual hierarchy correct — hero elements dominant, supporting elements smaller?
-- For technical diagrams: are the evidence artifacts (code snippets, data examples) readable and properly placed?
-
-**3. Check for visual defects:**
-- Text clipped by or overflowing its container
-- Text or shapes overlapping other elements
-- Arrows crossing through elements instead of routing around them
-- Arrows landing on the wrong element or pointing into empty space
-- Labels floating ambiguously (not clearly anchored to what they describe)
-- Uneven spacing between elements that should be evenly spaced
-- Sections with too much whitespace next to sections that are too cramped
-- Text too small to read at the rendered size
-- Overall composition feels lopsided or unbalanced
-
-**4. Fix** — Edit the JSON to address everything you found. Common fixes:
-- Widen containers when text is clipped
-- Adjust `x`/`y` coordinates to fix spacing and alignment
-- Add intermediate waypoints to arrow `points` arrays to route around elements
-- Reposition labels closer to the element they describe
-- Resize elements to rebalance visual weight across sections
-
-**5. Re-render & re-view** — Run the render script again and Read the new PNG.
-
-**6. Repeat** — Keep cycling until the diagram passes both the vision check (Step 2) and the defect check (Step 3). Typically takes 2-4 iterations. Don't stop after one pass just because there are no critical bugs — if the composition could be better, improve it.
-
-### When to Stop
-
-The loop is done when:
-- The rendered diagram matches the conceptual design from your planning steps
-- No text is clipped, overlapping, or unreadable
-- Arrows route cleanly and connect to the right elements
-- Spacing is consistent and the composition is balanced
-- You'd be comfortable showing it to someone without caveats
-
-### First-Time Setup
-If the render script hasn't been set up yet:
-```bash
-cd .claude/skills/excalidraw-diagram/references
-uv sync
-uv run playwright install chromium
-```
+**Deliverable**: a valid `.excalidraw` JSON file. Do not generate PNG previews or install browser/render tooling.
 
 ---
 
@@ -540,11 +479,10 @@ uv run playwright install chromium
 19. **Opacity**: `opacity: 100` for all elements (no transparency)
 20. **Container ratio**: <30% of text elements should be inside containers
 
-### Visual Validation (Render Required)
-21. **Rendered to PNG**: Diagram has been rendered and visually inspected
-22. **No text overflow**: All text fits within its container
-23. **No overlapping elements**: Shapes and text don't overlap unintentionally
-24. **Even spacing**: Similar elements have consistent spacing
-25. **Arrows land correctly**: Arrows connect to intended elements without crossing others
-26. **Readable at export size**: Text is legible in the rendered PNG
-27. **Balanced composition**: No large empty voids or overcrowded regions
+### Structural (JSON self-check; no PNG)
+21. **IDs resolve**: All bindings and `containerId` references point at real element ids
+22. **Text bounds**: Text `width`/`height` large enough for content; containers not narrower than their labels
+23. **No stack collisions**: Major shapes not at the same coordinates
+24. **Even spacing**: Peer elements share consistent gaps in coordinates
+25. **Arrows connect**: Bindings and `points` target the intended elements
+26. **Composition**: No huge empty regions or overcrowded clusters in the coordinate layout

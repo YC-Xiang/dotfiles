@@ -1,4 +1,9 @@
+# Local leftovers only — this skill does not ship a render pipeline
 .venv/
+node_modules/
 *.png
-uv.lock
 __pycache__/
+*.pyc
+.uv/
+uv.lock
+package-lock.json
