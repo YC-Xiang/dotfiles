@@ -53,7 +53,8 @@ Field rules:
 
 - type: Must be one of: feat fix docs style refactor perf test build ci chore revert
 - scope: Optional, wrapped in parentheses, reflects the affected module (e.g. cif, isp, lcdc), inferred from the diff path/content
-- description: Imperative mood, lowercase first letter, no trailing period, header line <= 50 characters
+- description: Imperative mood, lowercase first letter, no trailing period
+- header line: the full line `<type>(scope): <description>` (type + scope + description combined) must be <= 50 characters total, not just the description text
 - body: Explain what changed, why, and the impact; each line <= 72 characters; may span multiple lines
 - JIRA-ID: If a JIRA issue ID was provided in $ARGUMENTS, place it on its own line after the body, separated by a blank line. If $ARGUMENTS is empty, omit the JIRA-ID line.
 
