@@ -60,6 +60,7 @@
   "rust-analyzer.inlayHints.typeHints.enable": true,
   "rust-analyzer.inlayHints.parameterHints.enable": false,
   "rust-analyzer.inlayHints.chainingHints.enable": false,
+  "rust-analyzer.inlayHints.closingBraceHints.enable": false,
   "rust-analyzer.inlayHints.closureReturnTypeHints.enable": "with_block",
   "rust-analyzer.inlayHints.lifetimeElisionHints.enable": "skip_trivial",
   "rust-analyzer.inlayHints.bindingModeHints.enable": false,
@@ -210,6 +211,7 @@
   },
   "vim.commandLineModeKeyBindingsNonRecursive": [],
   // TODO tree
+  "todo-tree.ripgrep.ripgrep": "/home/yucheng_xiang/.local/bin/rg",
   "todo-tree.general.tags": [
     "???",
     "NOTE:",
@@ -314,9 +316,6 @@
   "cmake.showOptionsMovedNotification": false,
   "cmake.configureOnOpen": true,
   "cmake.showConfigureWithDebuggerNotification": false,
-  // cursor
-  "cursor.cpp.enablePartialAccepts": true,
-  "cursor.composer.usageSummaryDisplay": "always",
   // gitlens
   "gitlens.codeLens.enabled": false,
   "gitlens.views.commits.showStashes": true,
@@ -332,10 +331,5 @@
     "repositories": true,
     "searchAndCompare": false,
     "launchpad": false
-  },
-  "cursor.cpp.disabledLanguages": [
-    "markdown",
-    "plaintext",
-    "rust"
-  ]
+  }
 }
