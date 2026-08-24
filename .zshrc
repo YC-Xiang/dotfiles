@@ -83,6 +83,9 @@ plugins=(
   zsh-syntax-highlighting
   z
   web-search
+  fzf
+  extract
+  sudo
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -141,3 +144,5 @@ export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 if [ -f "$HOME/.zshrc.local" ]; then
     source "$HOME/.zshrc.local"
 fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

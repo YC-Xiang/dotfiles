@@ -14,7 +14,7 @@ alias gam="git commit --amend"
 alias v="nvim"
 alias vim="nvim"
 alias vimm="\vim"
-alias c="cursor"
+alias c="code"
 
 git config --global alias.br branch
 git config --global alias.sh stash
@@ -46,8 +46,4 @@ function gpp() {
 	git push origin HEAD:refs/for/${br2}
 }
 
-# parse_git_branch() {
-#     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-# }
-
-# export PS1="\u@\h \[\033[01;00m\]\w\$(parse_git_branch)\[\033[00m\] $ "
+alias fo='code $(fzf)'
