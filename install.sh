@@ -6,13 +6,24 @@ DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 backup_and_link() {
     local src="$1"
     local dst="$2"
+    if [ ! -e "$src" ]; then
+        echo "  skipped (not in repo): $src" >&2
+        return
+    fi
     if [ -L "$dst" ] && [ "$(readlink "$dst")" = "$src" ]; then
         echo "  already linked: $dst"
         return
     fi
     if [ -e "$dst" ] || [ -L "$dst" ]; then
+        # Never prompt and never clobber an earlier backup: on a name collision
+        # the new backup gets a timestamp suffix.
+        local backup="$DOTFILES_DIR/old_files/$(basename "$dst")"
         mkdir -p "$DOTFILES_DIR/old_files"
-        mv -i "$dst" "$DOTFILES_DIR/old_files/"
+        if [ -e "$backup" ] || [ -L "$backup" ]; then
+            backup="$backup.$(date +%Y%m%d-%H%M%S)"
+        fi
+        mv "$dst" "$backup"
+        echo "  backed up: $dst -> $backup"
     fi
     mkdir -p "$(dirname "$dst")"
     ln -s "$src" "$dst"
@@ -32,20 +43,17 @@ link_dotfiles() {
     # Neovim (XDG config)
     backup_and_link "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
 
-    # Claude Code
-    backup_and_link "$DOTFILES_DIR/claude/settings.json" "$HOME/.claude/settings.json"
-    backup_and_link "$DOTFILES_DIR/claude/statusline.sh" "$HOME/.claude/statusline.sh"
-
-    # VSCode / Cursor (only if the editor config dir already exists)
-    for editor_dir in "$HOME/.config/Code/User" "$HOME/.config/Cursor/User"; do
-        if [ -d "$editor_dir" ]; then
-            echo "==> Linking VSCode/Cursor config ($(basename "$(dirname "$editor_dir")"))"
-            backup_and_link "$DOTFILES_DIR/vscode/settings.json"    "$editor_dir/settings.json"
-            backup_and_link "$DOTFILES_DIR/vscode/keybindings.json" "$editor_dir/keybindings.json"
-        fi
-    done
-
     echo "==> Dotfiles linked."
+}
+
+# apt-get install, refreshing the package lists once per run (a fresh container
+# has none, and install would fail).
+apt_install() {
+    if [ "${APT_UPDATED:-}" != yes ]; then
+        sudo apt-get update
+        APT_UPDATED=yes
+    fi
+    sudo apt-get install -y "$@"
 }
 
 install_apps() {
@@ -54,7 +62,7 @@ install_apps() {
     # Neovim (official tarball — keeps the /opt/nvim-linux-x86_64 layout the .zshrc expects)
     if ! command -v nvim &>/dev/null; then
         echo "  Installing Neovim..."
-        curl -Lo /tmp/nvim.tar.gz \
+        curl -fLo /tmp/nvim.tar.gz \
             https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
         sudo tar -xzf /tmp/nvim.tar.gz -C /opt
         sudo ln -sf /opt/nvim-linux-x86_64/bin/nvim /usr/local/bin/nvim
@@ -64,20 +72,23 @@ install_apps() {
     # tmux
     if ! command -v tmux &>/dev/null; then
         echo "  Installing tmux..."
-        sudo apt-get install -y tmux
+        apt_install tmux
     fi
 
     # zsh
     if ! command -v zsh &>/dev/null; then
         echo "  Installing zsh..."
-        sudo apt-get install -y zsh
+        apt_install zsh
     fi
 
     # oh-my-zsh
+    # --keep-zshrc is required: without it the installer moves the ~/.zshrc symlink
+    # we just created to ~/.zshrc.pre-oh-my-zsh and drops in its own template, and
+    # --unattended suppresses the confirmation prompt, so it happens silently.
     if [ ! -d "$HOME/.oh-my-zsh" ]; then
         echo "  Installing oh-my-zsh..."
         sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" \
-            "" --unattended
+            "" --unattended --keep-zshrc
     fi
 
     # powerlevel10k theme
@@ -104,9 +115,19 @@ install_apps() {
     echo "==> Apps installed."
 }
 
+# Validate before touching anything, so a mistyped flag doesn't half-run.
+case "${1:-}" in
+    ""|--install-apps) ;;
+    *)
+        echo "Unknown option: $1" >&2
+        echo "Usage: ./install.sh [--install-apps]" >&2
+        exit 1
+        ;;
+esac
+
 link_dotfiles
 
-if [[ "${1:-}" == "--install-apps" ]]; then
+if [ "${1:-}" = "--install-apps" ]; then
     install_apps
 else
     echo ""
