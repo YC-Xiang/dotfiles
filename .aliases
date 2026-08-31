@@ -38,10 +38,13 @@ function gp() {
 }
 
 function gpp() {
-	br=`git branch -vv | grep "*"`
-	br1=${br#*origin/}
-	br2=${br1%%:*}
-	git push origin HEAD:refs/for/${br2}
+	local target_commit="${1:-HEAD}"
+
+	local br=`git branch -vv | grep "*"`
+	local br1=${br#*origin/}
+	local br2=${br1%%:*}
+
+	git push origin ${target_commit}:refs/for/${br2}
 }
 
 alias fo='code $(fzf)'
