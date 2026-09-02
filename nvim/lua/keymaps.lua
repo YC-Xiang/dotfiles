@@ -22,7 +22,7 @@ vim.g.mapleader = " "
 -- map("i", "<Right>", "<Nop>", opts)
 
 
-map("i", "jj", "<Esc>", opts)
+map("i", "jj", "<Esc>", "exit insert mode")
 
 -- Resize with arrows
 -- delta: 2 lines

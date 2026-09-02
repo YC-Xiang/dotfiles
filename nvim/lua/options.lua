@@ -7,6 +7,8 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.cursorline = true
+vim.opt.signcolumn = 'yes' -- 固定符号列，避免 gitsigns/诊断导致布局抖动
+vim.opt.scrolloff = 8
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
@@ -50,6 +52,8 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.opt.swapfile = false
+vim.opt.undofile = true
+vim.opt.updatetime = 300 -- 影响 gitsigns 与 LSP 诊断浮窗的响应速度
 vim.opt.termguicolors = true
 vim.opt.list = true
 -- vim.opt.listchars = {

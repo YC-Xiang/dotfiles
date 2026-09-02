@@ -7,13 +7,14 @@
 | **tokyonight.nvim** | 配色主题，使用 `day` 浅色风格。设了最高优先级确保最先加载。 |
 | **lualine.nvim** | 底部状态栏，显示当前模式、文件名、行列号、Git 分支等信息。 |
 | **indent-blankline.nvim** | 在缩进处显示竖线，方便看清代码块的层级结构。 |
-| **bufferline.nvim** | 顶部 buffer 标签栏（类似编辑器 tab）。⚠️ 当前 `enabled = false`，已禁用。 |
+| **bufferline.nvim** | 顶部 buffer 标签栏（类似编辑器 tab），`<S-h>`/`<S-l>` 切换。 |
 
 ## 文件浏览 & 搜索
 
 | 插件 | 作用 |
 |------|------|
 | **nvim-tree.lua** | 左侧文件树面板，可以浏览、打开、创建、删除文件。配置了当它是最后一个窗口时自动退出 Neovim。 |
+| **oil.nvim** | 在 buffer 里直接编辑文件系统（类似 vim-vinegar），`-` 或 `<leader>e` 打开，重命名/移动/删除文件非常方便。 |
 | **telescope.nvim** | 模糊搜索神器，可以搜文件名、文件内容、Git 记录、buffer 等。带了 `fzf-native` 扩展提升性能。 |
 
 ## 代码理解 & 高亮
@@ -33,7 +34,7 @@
 | **nvim-surround** | 快速添加、修改、删除包围符号（括号、引号、HTML 标签等）。例如 `ysiw"` 给单词加引号，`ds"` 删除引号。 |
 | **Comment.nvim** | 快速注释/反注释代码，`gcc` 注释当前行，`gc` + 动作注释一段。 |
 | **conform.nvim** | 代码格式化，配置了：Lua 用 `stylua`，Python 用 `isort` + `black`，C 用 `clang-format`。 |
-| **multicursor.nvim** | 多光标编辑，可同时编辑多处。⚠️ 当前 `enabled = false`，已禁用。 |
+| **multicursor.nvim** | 多光标编辑，可同时编辑多处。`<Up>`/`<Down>` 添加上下光标，`<leader>n` 按词匹配添加。 |
 
 ## Git
 
@@ -46,7 +47,6 @@
 | 插件 | 作用 |
 |------|------|
 | **which-key.nvim** | 按下 `<leader>` 等前缀键后弹出提示面板，显示所有可用的按键绑定。按 `<leader>?` 查看当前 buffer 的快捷键。 |
-| **hardtime.nvim** | 强制养成好的 Vim 习惯，当你反复按同一个移动键时会提示或阻止，逼你用更高效的动作。方向键已豁免不受限制。 |
 
 ---
 

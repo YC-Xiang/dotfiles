@@ -5,7 +5,12 @@ vim.keymap.del("n", "grr")
 vim.keymap.del("n", "gri")
 vim.keymap.del("n", "gO")
 
--- Create new keymapping for lsps
+vim.diagnostic.config({
+  virtual_text = { prefix = "●" },
+  signs = true,
+  float = { border = "rounded", source = "if_many" },
+  update_in_insert = false,
+})
 
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(args)
@@ -13,10 +18,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		local lsp = vim.lsp
 		local bufopts = { noremap = true, silent = true }
 
-		keymap.set("n", "gr", lsp.buf.references, bufopts)
 		keymap.set("n", "gd", lsp.buf.definition, bufopts)
-		keymap.set("n", "<space>rn", lsp.buf.rename, {noremap = true, silent = true, desc = "lsp rename"})
+		keymap.set("n", "gD", lsp.buf.declaration, bufopts)
+		keymap.set("n", "gI", lsp.buf.implementation, bufopts)
+		keymap.set("n", "gy", lsp.buf.type_definition, bufopts)
+		keymap.set("n", "gr", lsp.buf.references, bufopts)
 		keymap.set("n", "gh", lsp.buf.hover, bufopts)
+		keymap.set("n", "K", lsp.buf.signature_help, bufopts)
+		keymap.set("n", "<space>rn", lsp.buf.rename, {noremap = true, silent = true, desc = "lsp rename"})
+		keymap.set("n", "<space>ca", lsp.buf.code_action, {noremap = true, silent = true, desc = "lsp code action"})
+		keymap.set("n", "[d", lsp.diagnostic.goto_prev, bufopts)
+		keymap.set("n", "]d", lsp.diagnostic.goto_next, bufopts)
 		keymap.set("n", "<space>fo", function()
 			require("conform").format({ async = true, lsp_fallback = true })
 		end, bufopts)
@@ -25,8 +37,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 vim.api.nvim_create_autocmd("CursorHold", {
 	callback = function()
-		vim.diagnostic.open_float(nil, { focusable = false, source = "if_many" })
+		if #vim.diagnostic.get(vim.api.nvim_get_current_buf()) > 0 then
+			vim.diagnostic.open_float(nil, { focusable = false, source = "if_many" })
+		end
 	end,
 })
 
-vim.lsp.enable({ "clangd" })
+vim.lsp.enable({ "clangd", "pyright" })

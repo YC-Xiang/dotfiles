@@ -1,8 +1,10 @@
 return {
   'stevearc/conform.nvim',
   opts = {
-      lua = {"stylua"},
-      python = {"isort", "black"},
-      c = {"clang-format"}
+    formatters_by_ft = {
+      lua = { "stylua" },
+      python = { "isort", "black" },
+      c = { "clang-format" },
+    },
   },
 }
