@@ -5,6 +5,8 @@
   "defaultModel": "deepseek-v4-flash",
   "defaultThinkingLevel": "high",
   "hideThinkingBlock": true,
+  "showCacheMissNotices": true,
+  "externalEditor": "nvim",
   "packages": [
     "npm:pi-mcp-adapter",
     "npm:pi-web-access"
