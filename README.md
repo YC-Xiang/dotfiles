@@ -1,6 +1,6 @@
 # Dotfiles
 
-我的个人开发环境配置备份：zsh、tmux、Neovim、Vim，以及 Claude Code 的自定义 skills。
+我的个人开发环境配置备份：zsh、tmux、Neovim、Vim。AI 相关配置（pi / Claude Code / skills）已拆分到独立的 [`dotfiles-ai`](https://github.com/YC-Xiang/dotfiles-ai) 仓库。
 
 通过 `install.sh` 把仓库里的文件软链接到 home 目录对应位置，所以改配置就是改这个仓库，`git commit` 即完成备份。
 
@@ -33,6 +33,7 @@ cd ~/dotfiles
 | `.tmux.conf` | `~/.tmux.conf` | tmux 前缀键、分屏、复制模式 |
 | `nvim/` | `~/.config/nvim` | Neovim 全套配置（主力编辑器） |
 | `.vimrc` | `~/.vimrc` | 原生 vim 的兜底配置（没装 nvim 的机器上用） |
-| `agents/skills/` | 手动链接到 `~/.claude/skills/` | Claude Code 自定义 skill |
 | `install.sh` | — | 安装脚本本身 |
+
+> AI 相关配置（pi/agent、claude/hooks、osc-notify 工具、skills）见 [`~/dotfiles-ai`](https://github.com/YC-Xiang/dotfiles-ai)，本仓库不再包含。
 ---
