@@ -56,6 +56,38 @@ apt_install() {
     sudo apt-get install -y "$@"
 }
 
+# nvim-treesitter's `main` branch (the only one that supports Neovim 0.12+) shells
+# out to the tree-sitter CLI to build parsers, so without it every startup errors
+# with `Error during "tree-sitter build"`.
+install_tree_sitter_cli() {
+    if command -v tree-sitter &>/dev/null; then
+        echo "  already installed: tree-sitter ($(tree-sitter --version))"
+        return
+    fi
+    echo "  Installing tree-sitter CLI..."
+
+    if [ "$(uname -s)" = "Darwin" ]; then
+        brew install tree-sitter
+        return
+    fi
+
+    # Releases after 0.25.10 are built on Ubuntu 24.04 and need glibc >= 2.39, so
+    # older distros (e.g. Ubuntu 22.04 with glibc 2.35) get the last 22.04 build.
+    # An unparseable ldd output falls through to the pinned version, which runs
+    # everywhere the newer one does.
+    local glibc url
+    glibc="$(ldd --version 2>/dev/null | head -1 | grep -oE '[0-9]+\.[0-9]+$' || true)"
+    if [ -n "$glibc" ] && [ "$(printf '%s\n2.39\n' "$glibc" | sort -V | head -1)" = "2.39" ]; then
+        url="https://github.com/tree-sitter/tree-sitter/releases/latest/download/tree-sitter-linux-x64.gz"
+    else
+        url="https://github.com/tree-sitter/tree-sitter/releases/download/v0.25.10/tree-sitter-linux-x64.gz"
+    fi
+
+    mkdir -p "$HOME/.local/bin"
+    curl -fL "$url" | gunzip >"$HOME/.local/bin/tree-sitter"
+    chmod +x "$HOME/.local/bin/tree-sitter"
+}
+
 install_apps() {
     echo "==> Installing apps..."
 
@@ -68,6 +100,14 @@ install_apps() {
         sudo ln -sf /opt/nvim-linux-x86_64/bin/nvim /usr/local/bin/nvim
         rm /tmp/nvim.tar.gz
     fi
+
+    # tree-sitter CLI + a C compiler for nvim-treesitter parser builds
+    # (on macOS `cc` comes from the Xcode command line tools, not apt)
+    if [ "$(uname -s)" != "Darwin" ] && ! command -v cc &>/dev/null; then
+        echo "  Installing build-essential..."
+        apt_install build-essential
+    fi
+    install_tree_sitter_cli
 
     # tmux
     if ! command -v tmux &>/dev/null; then

@@ -27,9 +27,17 @@
 
 | 插件 | 作用 |
 |------|------|
-| **nvim-treesitter** | 基于语法树的代码高亮，比正则高亮更准确。自动安装缺失的语言解析器，超过 100KB 的大文件会自动禁用以保性能。 |
+| **nvim-treesitter** | 基于语法树的代码高亮，比正则高亮更准确。自动安装缺失的语言解析器，超过 100KB 的大文件会自动禁用以保性能。用 `main` 分支（nvim 0.12 只支持它），**需要 `tree-sitter` CLI 和 C 编译器**，见下方说明。 |
 | **nvim-treesitter-context** | 在文件顶部固定显示当前光标所在的函数/类名，滚动长函数时不会迷失位置。 |
 | **todo-comments.nvim** | 高亮并收集代码里的 `TODO`、`FIXME`、`NOTE`、`HACK` 等注释，可以用 Telescope 搜索全部待办。 |
+
+### nvim-treesitter 的外部依赖
+
+`master` 分支已冻结且不支持 nvim 0.12，所以配置钉在 `main`。两者编译 parser 的方式不同：`master` 直接用 `cc`/`gcc`，`main` 一律调用 `tree-sitter` CLI，parser 也从插件目录改装到 `~/.local/share/nvim/site/parser`。因此：
+
+- 必须自己装 `tree-sitter` CLI（`install.sh --install-apps` 会装；macOS 用 `brew install tree-sitter`），否则启动时每个缺失的 parser 都会报 `Error during "tree-sitter build": ENOENT ... 'tree-sitter'`。没装时配置只会 warn 一次，并退回用 nvim 自带的 c/lua/markdown/query/vim/vimdoc parser。
+- 从 `master` 升上来的机器要删掉插件目录里残留的 `parser/`、`parser-info/`，老 parser 和 `main` 自带的新 queries 不匹配，会报 `Query error ... Invalid field name`。
+- Ubuntu 22.04（glibc 2.35）只能用 tree-sitter CLI **v0.25.10**，更新的官方二进制在 Ubuntu 24.04 上构建、要求 glibc 2.39。`:checkhealth nvim-treesitter` 会提示 `tree-sitter-cli v0.26.1 is required`，那只是版本号检查，0.25.10 实际能正常编译全部 parser。
 
 ## 代码编辑
 

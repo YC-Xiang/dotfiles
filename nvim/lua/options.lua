@@ -17,6 +17,15 @@ vim.opt.hlsearch = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
+-- 折叠范围由 treesitter 语法树决定（函数/类/代码块），没有 parser 的 filetype 会退化成不折叠。
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+-- 打开文件时全部展开，只在手动 zc/zM 时才折；否则每次打开文件都是一堆折叠。
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+vim.opt.foldtext = "" -- nvim 0.10+：折叠行保留语法高亮，而不是灰扑扑的 +-- 摘要
+vim.opt.fillchars:append({ fold = " " })
+
 local ft_settings = {
   python    = { textwidth = 80,  colorcolumn = "+1" },
   c         = { textwidth = 80,  colorcolumn = "+1" },
