@@ -146,3 +146,5 @@ if [ -f "$HOME/.zshrc.local" ]; then
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+[ -f ~/.zsh_secrets ] && source ~/.zsh_secrets
