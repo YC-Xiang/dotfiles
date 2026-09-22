@@ -88,6 +88,8 @@ plugins=(
   sudo
 )
 
+ZSHZ_UNCOMMON=1
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
