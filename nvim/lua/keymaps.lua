@@ -53,3 +53,11 @@ map('n', "n", "nzz")
 map('n', "N", "Nzz")
 
 map('n', "<leader>p", "\"_dP")
+
+if vim.g.vscode then
+	-- lsp.lua 在 VSCode 里不加载，需要在这里删掉 Neovim 自带的 gr* 映射，否则按 gr 会等 timeoutlen
+	for _, lhs in ipairs({ "grn", "gra", "grr", "gri", "grt", "grx" }) do
+		pcall(vim.keymap.del, { "n", "x" }, lhs)
+	end
+	map('n', "gr", function() require("vscode").action("editor.action.goToReferences") end, "go to references")
+end

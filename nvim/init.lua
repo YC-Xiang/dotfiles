@@ -1,5 +1,7 @@
 require('options')
 require("keymaps")
 require("config.lazy")
-require("colorscheme")
-require('lsp')
+if not vim.g.vscode then
+  require("colorscheme")
+  require('lsp')
+end

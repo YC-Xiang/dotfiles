@@ -1,3 +1,7 @@
+if vim.g.vscode then
+  -- Remote-SSH 下 Linux 端没有可用的剪贴板工具，借 VSCode 的剪贴板 API 写到本地 Windows
+  vim.g.clipboard = vim.g.vscode_clipboard
+end
 vim.opt.clipboard = 'unnamedplus'
 vim.opt.mouse = 'a'
 vim.g.loaded_netrw = 1
